@@ -1,8 +1,0 @@
-C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid\bin\Debug\TheVoid.dll
-C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid\bin\Debug\TheVoid.pdb
-C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid\bin\Debug\Jurassic.dll
-C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid\bin\Debug\NAudio.dll
-C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid\bin\Debug\Jurassic.pdb
-C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid\bin\Debug\NAudio.xml
-C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid\obj\Debug\TheVoid.dll
-C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid\obj\Debug\TheVoid.pdb

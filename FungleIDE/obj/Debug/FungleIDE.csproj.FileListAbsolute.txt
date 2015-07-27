@@ -1,8 +1,0 @@
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\FungleIDE\bin\Debug\FungleIDE.exe
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\FungleIDE\bin\Debug\FungleIDE.pdb
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\FungleIDE\obj\Debug\FungleIDE.csprojResolveAssemblyReference.cache
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\FungleIDE\obj\Debug\FungleIDE.Form1.resources
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\FungleIDE\obj\Debug\FungleIDE.Properties.Resources.resources
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\FungleIDE\obj\Debug\FungleIDE.csproj.GenerateResource.Cache
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\FungleIDE\obj\Debug\FungleIDE.exe
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\FungleIDE\obj\Debug\FungleIDE.pdb

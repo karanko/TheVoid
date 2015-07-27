@@ -1,8 +1,0 @@
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\TelnetPostingClient\bin\Debug\TelnetPostingClient.exe
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\TelnetPostingClient\bin\Debug\TelnetPostingClient.pdb
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\TelnetPostingClient\obj\Debug\TelnetPostingClient.csprojResolveAssemblyReference.cache
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\TelnetPostingClient\obj\Debug\TelnetPostingClient.TelnetPostingClient.resources
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\TelnetPostingClient\obj\Debug\TelnetPostingClient.Properties.Resources.resources
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\TelnetPostingClient\obj\Debug\TelnetPostingClient.csproj.GenerateResource.Cache
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\TelnetPostingClient\obj\Debug\TelnetPostingClient.exe
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\TelnetPostingClient\obj\Debug\TelnetPostingClient.pdb

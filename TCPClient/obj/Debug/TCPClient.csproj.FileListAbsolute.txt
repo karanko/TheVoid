@@ -1,8 +1,0 @@
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\TCPClient\bin\Debug\TCPClient.exe
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\TCPClient\bin\Debug\TCPClient.pdb
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\TCPClient\obj\Debug\TCPClient.Form1.resources
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\TCPClient\obj\Debug\TCPClient.Properties.Resources.resources
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\TCPClient\obj\Debug\TCPClient.csproj.GenerateResource.Cache
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\TCPClient\obj\Debug\TCPClient.exe
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\TCPClient\obj\Debug\TCPClient.pdb
-c:\Dropbox\documents\visual studio 2012\Projects\jstest\TCPClient\obj\Debug\TCPClient.csprojResolveAssemblyReference.cache

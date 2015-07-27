@@ -1,5 +1,0 @@
-C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
-C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
-C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
-C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
-C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

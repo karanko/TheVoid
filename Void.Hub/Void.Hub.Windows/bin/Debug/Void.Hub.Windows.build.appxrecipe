@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>DOM</Machine>
+    <WindowsUser>Dominic</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>5eb91446-7625-4645-ad36-84fee7064c83</PackageIdentityName>
+    <IntermediateOutputPath>C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Windows\obj\Debug\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Windows\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Windows\bin\Debug\Void.Hub.Windows.exe">
+      <PackagePath>Void.Hub.Windows.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Windows\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Windows\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Windows\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Windows\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Windows\Assets\WideLogo.scale-100.png">
+      <PackagePath>Assets\WideLogo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Shared\Assets\LightGray.png">
+      <PackagePath>Assets\LightGray.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Shared\Assets\MediumGray.png">
+      <PackagePath>Assets\MediumGray.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Shared\Assets\DarkGray.png">
+      <PackagePath>Assets\DarkGray.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Shared\DataModel\SampleData.json">
+      <PackagePath>DataModel\SampleData.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Windows\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Windows\bin\Debug\HubPage.xbf">
+      <PackagePath>HubPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Windows\bin\Debug\SectionPage.xbf">
+      <PackagePath>SectionPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Windows\bin\Debug\ItemPage.xbf">
+      <PackagePath>ItemPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Windows\bin\Debug\Void.Hub.Windows.xr.xml">
+      <PackagePath>Void.Hub.Windows.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Void.Hub\Void.Hub.Windows\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

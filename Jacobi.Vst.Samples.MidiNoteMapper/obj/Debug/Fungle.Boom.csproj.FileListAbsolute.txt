@@ -1,0 +1,17 @@
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Fungle.Boom.xml
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Fungle.Boom.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Fungle.Boom.pdb
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Core.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Framework.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Interop.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jurassic.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Core.pdb
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Core.xml
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Framework.pdb
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Framework.xml
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Interop.pdb
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Interop.xml
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jurassic.pdb
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jurassic.xml
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\obj\Debug\Fungle.Boom.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Jacobi.Vst.Samples.MidiNoteMapper\obj\Debug\Fungle.Boom.pdb

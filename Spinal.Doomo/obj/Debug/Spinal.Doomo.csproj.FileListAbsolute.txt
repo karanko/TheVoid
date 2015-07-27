@@ -1,0 +1,14 @@
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Spinal.Doomo\obj\Debug\Spinal.Doomo.csprojResolveAssemblyReference.cache
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Spinal.Doomo\bin\Debug\Jacobi.Vst.Core.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Spinal.Doomo\bin\Debug\Jacobi.Vst.Framework.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Spinal.Doomo\bin\Debug\Jacobi.Vst.Interop.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Spinal.Doomo\bin\Debug\Jacobi.Vst.Core.pdb
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Spinal.Doomo\bin\Debug\Jacobi.Vst.Core.xml
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Spinal.Doomo\bin\Debug\Jacobi.Vst.Framework.pdb
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Spinal.Doomo\bin\Debug\Jacobi.Vst.Framework.xml
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Spinal.Doomo\bin\Debug\Jacobi.Vst.Interop.pdb
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Spinal.Doomo\bin\Debug\Jacobi.Vst.Interop.xml
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Spinal.Doomo\bin\Debug\Spinal.Doomo.Half.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Spinal.Doomo\bin\Debug\Spinal.Doomo.Half.pdb
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Spinal.Doomo\obj\Debug\Spinal.Doomo.Half.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Spinal.Doomo\obj\Debug\Spinal.Doomo.Half.pdb

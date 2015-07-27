@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Jacobi.Vst.Samples.CorePlugin</name>
+    </assembly>
+    <members>
+        <member name="T:Jacobi.Vst.Samples.CorePlugin.EditorControl">
+            <summary>
+            This control is used as Plugin Editor UI.
+            </summary>
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.EditorControl.#ctor">
+            <summary>
+            Constructs a new instance.
+            </summary>
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.EditorControl.AddLine(System.String)">
+            <summary>
+            Adds the <paramref name="text"/> to the log.
+            </summary>
+            <param name="text">A text to log on the UI. Must not be null.</param>
+        </member>
+        <member name="F:Jacobi.Vst.Samples.CorePlugin.EditorControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.EditorControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.EditorControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Jacobi.Vst.Samples.CorePlugin.NativeMethods">
+            <summary>
+            Container class for native P/Invoke methods.
+            </summary>
+        </member>
+        <member name="T:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub">
+            <summary>
+            Custom implementation for the Plugin command stub.
+            </summary>
+            <remarks>Most methods just log to the UI.</remarks>
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetPluginInfo(Jacobi.Vst.Core.Plugin.IVstHostCommandStub)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.SetProcessPrecision(Jacobi.Vst.Core.VstProcessPrecision)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetNumberOfMidiInputChannels">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetNumberOfMidiOutputChannels">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetSpeakerArrangement(Jacobi.Vst.Core.VstSpeakerArrangement@,Jacobi.Vst.Core.VstSpeakerArrangement@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.SetTotalSamplesToProcess(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetNextPlugin(System.String@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.StartProcess">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.StopProcess">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.SetPanLaw(Jacobi.Vst.Core.VstPanLaw,System.Single)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.BeginLoadBank(Jacobi.Vst.Core.VstPatchChunkInfo)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.BeginLoadProgram(Jacobi.Vst.Core.VstPatchChunkInfo)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.EditorKeyDown(System.Byte,Jacobi.Vst.Core.VstVirtualKey,Jacobi.Vst.Core.VstModifierKeys)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.EditorKeyUp(System.Byte,Jacobi.Vst.Core.VstVirtualKey,Jacobi.Vst.Core.VstModifierKeys)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.SetEditorKnobMode(Jacobi.Vst.Core.VstKnobMode)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetMidiProgramName(Jacobi.Vst.Core.VstMidiProgramName,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetCurrentMidiProgramName(Jacobi.Vst.Core.VstMidiProgramName,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetMidiProgramCategory(Jacobi.Vst.Core.VstMidiProgramCategory,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.HasMidiProgramsChanged(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetMidiKeyName(Jacobi.Vst.Core.VstMidiKeyName,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.BeginSetProgram">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.EndSetProgram">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.ProcessEvents(Jacobi.Vst.Core.VstEvent[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.CanParameterBeAutomated(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.String2Parameter(System.Int32,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetProgramNameIndexed(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetInputProperties(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetOutputProperties(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetCategory">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.SetSpeakerArrangement(Jacobi.Vst.Core.VstSpeakerArrangement,Jacobi.Vst.Core.VstSpeakerArrangement)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.SetBypass(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetEffectName">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetVendorString">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetProductString">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetVendorVersion">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.CanDo(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetTailSize">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetParameterProperties(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetVstVersion">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.Open">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.Close">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.SetProgram(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetProgram">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.SetProgramName(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetProgramName">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetParameterLabel(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetParameterDisplay(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetParameterName(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.SetSampleRate(System.Single)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.SetBlockSize(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.MainsChanged(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.EditorGetRect(System.Drawing.Rectangle@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.EditorOpen(System.IntPtr)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.EditorClose">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.EditorIdle">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetChunk(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.SetChunk(System.Byte[],System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.ProcessReplacing(Jacobi.Vst.Core.VstAudioBuffer[],Jacobi.Vst.Core.VstAudioBuffer[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.ProcessReplacing(Jacobi.Vst.Core.VstAudioPrecisionBuffer[],Jacobi.Vst.Core.VstAudioPrecisionBuffer[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.SetParameter(System.Int32,System.Single)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.GetParameter(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="P:Jacobi.Vst.Samples.CorePlugin.PluginCommandStub.PluginConfiguration">
+            <inheritdoc />
+        </member>
+        <member name="T:Jacobi.Vst.Samples.CorePlugin.WinFormsWrapper`1">
+            <summary>
+            Helper class to easily attach a Windows.Forms UserControl to a Win32 native main window of the host.
+            </summary>
+            <typeparam name="T">The type of the managed Control.</typeparam>
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.WinFormsWrapper`1.Open(System.IntPtr)">
+            <summary>
+            Opens and attaches the Control to the <paramref name="hWnd"/>.
+            </summary>
+            <param name="hWnd">The native win32 handle to the main window of the host.</param>
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.WinFormsWrapper`1.GetBounds(System.Drawing.Rectangle@)">
+            <summary>
+            Returns the bounding rectangle of the Control.
+            </summary>
+            <param name="rect">Receives the bounding rectangle.</param>
+            <remarks>The same size as in design-time.</remarks>
+        </member>
+        <member name="M:Jacobi.Vst.Samples.CorePlugin.WinFormsWrapper`1.Close">
+            <summary>
+            Closes and destroys the Control.
+            </summary>
+        </member>
+        <member name="P:Jacobi.Vst.Samples.CorePlugin.WinFormsWrapper`1.Instance">
+            <summary>
+            Gets and instance of the specified <typeparamref name="T"/>.
+            </summary>
+            <remarks>Never returns null.</remarks>
+        </member>
+    </members>
+</doc>

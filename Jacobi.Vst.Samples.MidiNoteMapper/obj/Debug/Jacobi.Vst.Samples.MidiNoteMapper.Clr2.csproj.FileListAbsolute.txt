@@ -1,0 +1,15 @@
+C:\Dropbox\Code\dotnet\VST.net\Source\Samples\Jacobi.Vst.Samples.MidiNoteMapper\obj\Debug\Jacobi.Vst.Samples.MidiNoteMapper.Clr2.csprojResolveAssemblyReference.cache
+C:\Dropbox\Code\dotnet\VST.net\Source\Samples\Jacobi.Vst.Samples.MidiNoteMapper\obj\Debug\Jacobi.Vst.Samples.MidiNoteMapper.MapNoteDetails.resources
+C:\Dropbox\Code\dotnet\VST.net\Source\Samples\Jacobi.Vst.Samples.MidiNoteMapper\obj\Debug\Jacobi.Vst.Samples.MidiNoteMapper.MidiNoteMapperUI.resources
+C:\Dropbox\Code\dotnet\VST.net\Source\Samples\Jacobi.Vst.Samples.MidiNoteMapper\obj\Debug\Jacobi.Vst.Samples.MidiNoteMapper.Clr2.csproj.GenerateResource.Cache
+C:\Dropbox\Code\dotnet\VST.net\Source\Samples\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Samples.MidiNoteMapper.XML
+C:\Dropbox\Code\dotnet\VST.net\Source\Samples\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Samples.MidiNoteMapper.dll
+C:\Dropbox\Code\dotnet\VST.net\Source\Samples\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Samples.MidiNoteMapper.pdb
+C:\Dropbox\Code\dotnet\VST.net\Source\Samples\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Core.dll
+C:\Dropbox\Code\dotnet\VST.net\Source\Samples\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Framework.dll
+C:\Dropbox\Code\dotnet\VST.net\Source\Samples\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Core.pdb
+C:\Dropbox\Code\dotnet\VST.net\Source\Samples\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Core.xml
+C:\Dropbox\Code\dotnet\VST.net\Source\Samples\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Framework.pdb
+C:\Dropbox\Code\dotnet\VST.net\Source\Samples\Jacobi.Vst.Samples.MidiNoteMapper\bin\Debug\Jacobi.Vst.Framework.xml
+C:\Dropbox\Code\dotnet\VST.net\Source\Samples\Jacobi.Vst.Samples.MidiNoteMapper\obj\Debug\Jacobi.Vst.Samples.MidiNoteMapper.dll
+C:\Dropbox\Code\dotnet\VST.net\Source\Samples\Jacobi.Vst.Samples.MidiNoteMapper\obj\Debug\Jacobi.Vst.Samples.MidiNoteMapper.pdb

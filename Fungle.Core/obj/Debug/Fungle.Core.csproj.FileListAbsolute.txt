@@ -1,0 +1,10 @@
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\Fungle.Core\bin\Debug\Fungle.Core.dll
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\Fungle.Core\bin\Debug\Fungle.Core.pdb
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\Fungle.Core\bin\Debug\Jurassic.dll
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\Fungle.Core\bin\Debug\Jurassic.pdb
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\Fungle.Core\bin\Debug\Jurassic.xml
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\Fungle.Core\obj\Debug\Fungle.Core.csprojResolveAssemblyReference.cache
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\Fungle.Core\obj\Debug\Fungle.Core.dll
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\Fungle.Core\obj\Debug\Fungle.Core.pdb
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Fungle.Core\bin\Debug\NAudio.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\Fungle.Core\bin\Debug\NAudio.xml

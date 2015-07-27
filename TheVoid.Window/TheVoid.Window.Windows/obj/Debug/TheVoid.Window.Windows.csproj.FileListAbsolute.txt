@@ -1,0 +1,10 @@
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Window\TheVoid.Window.Windows\obj\Debug\App.g.i.cs
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Window\TheVoid.Window.Windows\obj\Debug\App.g.cs
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Window\TheVoid.Window.Windows\obj\Debug\MainPage.g.i.cs
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Window\TheVoid.Window.Windows\obj\Debug\MainPage.g.cs
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Window\TheVoid.Window.Windows\obj\Debug\XamlTypeInfo.g.cs
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Window\TheVoid.Window.Windows\obj\Debug\App.xaml
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Window\TheVoid.Window.Windows\obj\Debug\MainPage.xaml
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Window\TheVoid.Window.Windows\obj\Debug\App.xbf
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Window\TheVoid.Window.Windows\obj\Debug\MainPage.xbf
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Window\TheVoid.Window.Windows\obj\Debug\XamlSaveStateFile.xml

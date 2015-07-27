@@ -1,0 +1,15 @@
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\LDJSServer2\bin\Debug\LDJSServer2.exe
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\LDJSServer2\bin\Debug\LDJSServer2.pdb
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\LDJSServer2\bin\Debug\Fungle.Core.dll
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\LDJSServer2\bin\Debug\Jurassic.dll
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\LDJSServer2\bin\Debug\Fungle.Core.pdb
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\LDJSServer2\bin\Debug\Jurassic.pdb
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\LDJSServer2\bin\Debug\Jurassic.xml
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\LDJSServer2\obj\Debug\LDJSServer2.csprojResolveAssemblyReference.cache
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\LDJSServer2\obj\Debug\LDJSServer2.Form1.resources
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\LDJSServer2\obj\Debug\LDJSServer2.Properties.Resources.resources
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\LDJSServer2\obj\Debug\LDJSServer2.csproj.GenerateResource.Cache
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\LDJSServer2\obj\Debug\LDJSServer2.exe
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\LDJSServer2\obj\Debug\LDJSServer2.pdb
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\LDJSServer2\bin\Debug\NAudio.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\LDJSServer2\bin\Debug\NAudio.xml

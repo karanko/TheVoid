@@ -1,0 +1,6 @@
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\tester\bin\Debug\tester.exe
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\tester\bin\Debug\tester.pdb
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\tester\bin\Debug\Noesis.Javascript.dll
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\tester\obj\Debug\tester.csprojResolveAssemblyReference.cache
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\tester\obj\Debug\tester.exe
+c:\Dropbox\documents\visual studio 2012\Projects\jstest\tester\obj\Debug\tester.pdb

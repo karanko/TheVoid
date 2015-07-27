@@ -1,0 +1,24 @@
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\obj\Debug\TheVoid.Studio.csprojResolveAssemblyReference.cache
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\obj\Debug\TheVoid.Studio.Form1.resources
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\obj\Debug\TheVoid.Studio.Properties.Resources.resources
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\obj\Debug\TheVoid.Studio.csproj.GenerateResource.Cache
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\bin\Debug\TheVoid.Studio.exe.config
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\bin\Debug\TheVoid.Studio.exe
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\bin\Debug\TheVoid.Studio.pdb
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\bin\Debug\TheVoid.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\bin\Debug\Jurassic.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\bin\Debug\NAudio.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\bin\Debug\TheVoid.pdb
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\bin\Debug\Jurassic.pdb
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\bin\Debug\NAudio.xml
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\obj\Debug\TheVoid.Studio.exe
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\obj\Debug\TheVoid.Studio.pdb
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\obj\Debug\TheVoid.Studio.DefineFunction.resources
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\obj\Debug\TheVoid.Studio.FunctionEditor.resources
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\bin\Debug\demofunction.txt
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\obj\Debug\TheVoid.Studio.Editor.resources
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\obj\Debug\TheVoid.Studio.Pickertest.resources
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\TheVoid.Studio\bin\Debug\demofunctiondrum.txt
+\\localhost\c$\Repos\thevoid\TheVoid.Studio\bin\Debug\TheVoid.Studio.exe.config
+\\localhost\c$\Repos\thevoid\TheVoid.Studio\obj\Debug\TheVoid.Studio.exe
+\\localhost\c$\Repos\thevoid\TheVoid.Studio\obj\Debug\TheVoid.Studio.pdb

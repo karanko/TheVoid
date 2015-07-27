@@ -1,0 +1,6 @@
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll.config
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.pdb
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.csprojResolveAssemblyReference.cache
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.dll
+C:\Dropbox\Documents\Visual Studio 2012\Projects\jstest\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.pdb

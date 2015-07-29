@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tester", "tester\tester.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fungle.Core", "Fungle.Core\Fungle.Core.csproj", "{FC56F7A5-1677-42A9-8FA2-141F519F1729}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midi", "..\..\..\..\Code\dotnet\midi-dot-net_src_1.1.0\midi-dot-net\Midi\Midi.csproj", "{F60D8B7B-2D2E-4B94-A736-3783FFE1A25C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midi", "..\..\Code\dotnet\midi-dot-net_src_1.1.0\midi-dot-net\Midi\Midi.csproj", "{F60D8B7B-2D2E-4B94-A736-3783FFE1A25C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceLibrary1", "WcfServiceLibrary1\WcfServiceLibrary1.csproj", "{15B3E0D2-6217-493A-A690-158C497F5318}"
 EndProject
@@ -63,6 +63,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Void.Hub.Windows", "Void.Hub\Void.Hub.Windows\Void.Hub.Windows.csproj", "{922A534A-4A9D-44E8-8B4B-B23C443EBFB1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Void.Hub.WindowsPhone", "Void.Hub\Void.Hub.WindowsPhone\Void.Hub.WindowsPhone.csproj", "{3E585B87-F71D-4B12-877E-592C2CB7C995}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LowDefinition", "LowDefinition\LowDefinition.csproj", "{3BD4A783-8473-4782-BC41-918E6820E2A8}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -383,6 +385,16 @@ Global
 		{3E585B87-F71D-4B12-877E-592C2CB7C995}.Release|x86.ActiveCfg = Release|x86
 		{3E585B87-F71D-4B12-877E-592C2CB7C995}.Release|x86.Build.0 = Release|x86
 		{3E585B87-F71D-4B12-877E-592C2CB7C995}.Release|x86.Deploy.0 = Release|x86
+		{3BD4A783-8473-4782-BC41-918E6820E2A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BD4A783-8473-4782-BC41-918E6820E2A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BD4A783-8473-4782-BC41-918E6820E2A8}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{3BD4A783-8473-4782-BC41-918E6820E2A8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3BD4A783-8473-4782-BC41-918E6820E2A8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3BD4A783-8473-4782-BC41-918E6820E2A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BD4A783-8473-4782-BC41-918E6820E2A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BD4A783-8473-4782-BC41-918E6820E2A8}.Release|ARM.ActiveCfg = Release|Any CPU
+		{3BD4A783-8473-4782-BC41-918E6820E2A8}.Release|x64.ActiveCfg = Release|Any CPU
+		{3BD4A783-8473-4782-BC41-918E6820E2A8}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -25,7 +25,10 @@ namespace TheVoid
         public int bars = 4;
         public int steps
         {
-            get { return beats * bars; }
+            get
+            {
+                return beats;// *bars;
+            }
         }
         public int step
         {

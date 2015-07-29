@@ -14,7 +14,7 @@ namespace TheVoid.Studio
     {
        public  TheVoid.Combustion combustion;
        public  TheVoid.Ignition metro;
-        Editor x = new Editor();
+        Editor editorform ;//= new Editor();
         public Form1()
         {
             combustion = new TheVoid.Combustion();
@@ -49,8 +49,14 @@ namespace TheVoid.Studio
             //numericUpDown1.Maximum = 32;
 
                 numericUpDown3.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.OnPropertyChanged;
-                x.Visible = false;    
-            x.Show(this);
+
+                if (editorform == null || editorform.IsDisposed)
+                {
+                    editorform = new Editor();
+
+                }
+                editorform.Visible = false;    
+            editorform.Show(this);
 
            
         }
@@ -76,11 +82,16 @@ namespace TheVoid.Studio
             try
             {
                 textBox1.Text = combustion.Functions[listBox1.SelectedValue.ToString()].ToString();
-                if (!x.Visible)
+                if (editorform == null || editorform.IsDisposed)
                 {
-                    x.Visible = true;
+                    editorform = new Editor();
+
                 }
-                x.Data = listBox1.SelectedValue.ToString();
+                if (!editorform.Visible)
+                {
+                    editorform.Visible = true;
+                }
+                editorform.Data = listBox1.SelectedValue.ToString();
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }

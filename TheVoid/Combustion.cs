@@ -34,12 +34,12 @@ namespace TheVoid
             if(System.IO.File.Exists("demofunction.txt"))
             {
                 this.Functions.Add("Demo", System.IO.File.ReadAllText("demofunction.txt"));
-                this.ExecutingFunctions.Add("Demo");
+              //  this.ExecutingFunctions.Add("Demo");
             }
             if (System.IO.File.Exists("demofunctiondrum.txt"))
             {
                 this.Functions.Add("DemoDrum", System.IO.File.ReadAllText("demofunctiondrum.txt"));
-                this.ExecutingFunctions.Add("DemoDrum");
+               // this.ExecutingFunctions.Add("DemoDrum");
             }
 
             functiondelegates.Add("log", new Action<string>(str => System.Diagnostics.Debug.WriteLine(str)));
@@ -159,15 +159,23 @@ namespace TheVoid
 
         public void tickhandler(object source, System.Timers.ElapsedEventArgs e)
         {
-            SetVariable("tick",(int)GetVariable("tick", 0) + 1);
-            this.SetGlobalVariables();
-            SetFunctions();
-            foreach (var x in this.ExecutingFunctions)
+            try
             {
-               
+                SetVariable("tick", (int)GetVariable("tick", 0) + 1);
+                this.SetGlobalVariables();
+                SetFunctions();
+                foreach (var x in this.ExecutingFunctions)
+                {
+
                     this.Execute(x.ToLower(), x + "();");
-              
-                //    new Thread(this.thisthing).Start();
+
+                    //    new Thread(this.thisthing).Start();
+                }
+            }
+            catch(Exception ex)
+            {
+
+                System.Diagnostics.Debug.WriteLine(ex.Message);
             }
         }
     }

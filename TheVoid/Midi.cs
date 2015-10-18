@@ -11,7 +11,8 @@ namespace TheVoid
 {
     public class Midi
     {
-        private Dictionary<int, MidiOut> D_midiOut = new Dictionary<int,MidiOut>();
+        private Dictionary<int, MidiOut> D_midiOut = new Dictionary<int, MidiOut>();
+        private Dictionary<int, MidiIn> D_midiInt = new Dictionary<int, MidiIn>();
         private MidiOut MidiOutDevice(int i)
         {
             try
@@ -19,6 +20,8 @@ namespace TheVoid
                 if (!D_midiOut.ContainsKey(i))
                 {
                     D_midiOut.Add(i, new MidiOut(i));
+                    Debug.WriteLine("Add_Midiout:" + D_midiInt[i]);
+
                 }
 
                 return D_midiOut[i];
@@ -30,6 +33,54 @@ namespace TheVoid
             }
             return null;
         }
+        public MidiIn MidiInDevice(int i)
+        {
+            try
+            {
+                if (!D_midiInt.ContainsKey(i))
+                {
+                    D_midiInt.Add(i, new MidiIn(i));
+                    D_midiInt[i].Start();
+                    Debug.WriteLine("Add_MidiIN:" + D_midiInt[i]);
+                }
+               
+                return D_midiInt[i];
+            }
+            catch (Exception ex)
+            {
+
+                Debug.WriteLine(ex);
+            }
+            return null;
+        }
+       
+       public  string[] GetMIDIInDevices()
+        {
+            // Get a list of devices  
+            string[] returnDevices = new string[MidiIn.NumberOfDevices];
+
+            // Get the product name for each device found  
+            for (int device = 0; device < MidiIn.NumberOfDevices; device++)
+            {
+                returnDevices[device] = MidiIn.DeviceInfo(device).ProductName;
+                Debug.WriteLine("Add:"+returnDevices[device]);
+            }
+            return returnDevices;
+        }
+       public string[] GetMIDIOutDevices()
+       {
+           // Get a list of devices  
+           string[] returnDevices = new string[MidiOut.NumberOfDevices];
+
+           // Get the product name for each device found  
+           for (int device = 0; device < MidiOut.NumberOfDevices; device++)
+           {
+               returnDevices[device] = MidiOut.DeviceInfo(device).ProductName;
+               Debug.WriteLine("Add:" + returnDevices[device]);
+           }
+           return returnDevices;
+       } 
+
         public void ResetMidiOutDevices()
         {
             foreach (var x in D_midiOut)

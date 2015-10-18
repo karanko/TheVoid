@@ -157,27 +157,108 @@ namespace TheVoid
 
         }*/
 
-        public void tickhandler(object source, System.Timers.ElapsedEventArgs e)
+        private void tick(int t)
         {
             try
             {
-                SetVariable("tick", (int)GetVariable("tick", 0) + 1);
+            
+                if (t > -1)
+                {
+                    Debug.WriteLine("TICK:" + t);
+                    SetVariable("tick", t);
+                }
+                else
+                {
+                    SetVariable("tick", (int)GetVariable("tick", 0) + 1);
+                }
+
                 this.SetGlobalVariables();
                 SetFunctions();
                 foreach (var x in this.ExecutingFunctions)
                 {
-
+                    Debug.WriteLine("exec js");
                     this.Execute(x.ToLower(), x + "();");
 
                     //    new Thread(this.thisthing).Start();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
+
         }
+        public void tickhandler(object source, System.Timers.ElapsedEventArgs e)
+        {
+            tick(-1);
+        }
+        private int rawticks;
+        private int clockticks;
+        public  void midiIn_MessageReceived(object sender, MidiInMessageEventArgs e)
+        {
+            try
+            {
+                // Exit if the MidiEvent is null or is the AutoSensing command code  
+                if (e.MidiEvent != null && e.MidiEvent.CommandCode == MidiCommandCode.AutoSensing)
+                {
+                    return;
+                }
+
+                if (e.MidiEvent != null && e.MidiEvent.CommandCode == MidiCommandCode.StartSequence)
+                {
+                    Debug.WriteLine("Start");
+                    rawticks = -1;
+                    clockticks = -1;
+
+                }
+                if (e.MidiEvent != null && e.MidiEvent.CommandCode == MidiCommandCode.StopSequence)
+                {
+                    Debug.WriteLine("Stop");
+                    rawticks = -1;
+
+                }
+                if (e.MidiEvent != null && e.MidiEvent.CommandCode == MidiCommandCode.ContinueSequence)
+                {
+                    Debug.WriteLine("ContinueSequence");
+
+
+                }
+                if (e.MidiEvent != null && e.MidiEvent.CommandCode == MidiCommandCode.MetaEvent)
+                {
+                    Debug.WriteLine(e.MidiEvent.GetAsShortMessage());
+                }
+
+                if (e.MidiEvent != null && e.MidiEvent.CommandCode == MidiCommandCode.TimingClock)
+                {
+                    rawticks++;
+                    if (rawticks % 6 == 0 && clockticks != ((rawticks / 6) + 1) % 32)
+                    {
+                        clockticks = ((rawticks / 6)) % 32;
+                        Debug.WriteLine("clockticks:" + clockticks);
+                        tick(clockticks);
+
+                    }
+                    //    Console.WriteLine(e.MidiEvent.AbsoluteTime);
+
+                    //  Console.WriteLine("rawticks:" + rawticks);
+
+                }
+
+
+                /*   Console.WriteLine(e.MidiEvent.ToString());* 
+                   Console.WriteLine(e.MidiEvent.CommandCode.ToString());
+                 */
+            }
+            catch (Exception ex)
+            {
+
+                Debug.WriteLine(ex.Message);
+
+            }
+        }
+   
+    
     }
 
 }

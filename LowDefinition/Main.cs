@@ -97,11 +97,11 @@ namespace LowDefinition
 
         private void FunctionList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            Combustion.ExecutingFunctions.Clear();
+          //  Combustion.ExecutingFunctions.AddRange(FunctionList.Items);
             foreach(var item in FunctionList.CheckedItems)
             {
                 MessageWindow.Message(item.ToString()); 
-                Combustion.ExecutingFunctions.Add(item.ToString());
+               // Combustion.ExecutingFunctions.Add(item.ToString());
             }
         }
     }

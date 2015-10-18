@@ -7,28 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NAudio.Midi;
 
 namespace TheVoid.Studio
 {
     public partial class Form1 : Form
     {
        public  TheVoid.Combustion combustion;
-       public  TheVoid.Ignition metro;
+     //  public  TheVoid.Ignition metro;
         Editor editorform ;//= new Editor();
         public Form1()
         {
             combustion = new TheVoid.Combustion();
-            metro = new TheVoid.Ignition();
-            metro.addeventhandler(new System.Timers.ElapsedEventHandler(combustion.tickhandler));
+         //   metro = new TheVoid.Ignition();
+         //   metro.addeventhandler(new System.Timers.ElapsedEventHandler(combustion.tickhandler));
             //metro.addeventhandler(new System.Timers.ElapsedEventHandler(this.updatestudd));
             InitializeComponent();
             listBox1.DataSource = new List<string>(combustion.Functions.Keys);
+
+          //  combustion.Midi.MidiInDevice(3).MessageReceived += this.combustion.midiIn_MessageReceived;
+            combustion.Midi.MidiInDevice( combustion.Midi.GetMIDIInDevices().Count()-1).MessageReceived += combustion.midiIn_MessageReceived;
          //   listBox1.Refresh = true;
          //   dataGridView1.DataSource = new BindingSource(combustion.GlobalVariables, null); // GetPricelevels() returns Dictionary<string, string>
            
          //   dataGridView1.ValueMember = "Key";
            // dataGridView1.DisplayMember = "Value";
-
+/*
             textBox2.Text = metro.bpm.ToString();
 
             numericUpDown3.DataBindings.Clear();
@@ -47,9 +51,9 @@ namespace TheVoid.Studio
             //numericUpDown1.DataBindings.Add(new Binding("Value", metro, "beats"));
             //numericUpDown1.Minimum = 1;
             //numericUpDown1.Maximum = 32;
-
+           
                 numericUpDown3.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.OnPropertyChanged;
-
+ */
                 if (editorform == null || editorform.IsDisposed)
                 {
                     editorform = new Editor();
@@ -103,7 +107,7 @@ namespace TheVoid.Studio
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            metro.running = checkBox1.Checked;
+          //  metro.running = checkBox1.Checked;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -143,7 +147,7 @@ namespace TheVoid.Studio
         {
             try
             {
-                metro.bpm = Convert.ToInt16(textBox2.Text);
+              //  metro.bpm = Convert.ToInt16(textBox2.Text);
             }
             catch { }
         }

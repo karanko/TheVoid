@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jstest", "jstest\jstest.csproj", "{BF752B04-80EA-4A87-9F0B-E084B153E212}"
 EndProject
@@ -65,6 +65,15 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Void.Hub.WindowsPhone", "Void.Hub\Void.Hub.WindowsPhone\Void.Hub.WindowsPhone.csproj", "{3E585B87-F71D-4B12-877E-592C2CB7C995}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LowDefinition", "LowDefinition\LowDefinition.csproj", "{3BD4A783-8473-4782-BC41-918E6820E2A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication5", "ConsoleApplication5\ConsoleApplication5.csproj", "{E80C937E-E764-4199-8A7E-1BFC5D59445C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6C55FAFC-5B8B-43C8-A8AA-5013DEB4CF66}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -395,6 +404,16 @@ Global
 		{3BD4A783-8473-4782-BC41-918E6820E2A8}.Release|ARM.ActiveCfg = Release|Any CPU
 		{3BD4A783-8473-4782-BC41-918E6820E2A8}.Release|x64.ActiveCfg = Release|Any CPU
 		{3BD4A783-8473-4782-BC41-918E6820E2A8}.Release|x86.ActiveCfg = Release|Any CPU
+		{E80C937E-E764-4199-8A7E-1BFC5D59445C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E80C937E-E764-4199-8A7E-1BFC5D59445C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E80C937E-E764-4199-8A7E-1BFC5D59445C}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{E80C937E-E764-4199-8A7E-1BFC5D59445C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E80C937E-E764-4199-8A7E-1BFC5D59445C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E80C937E-E764-4199-8A7E-1BFC5D59445C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E80C937E-E764-4199-8A7E-1BFC5D59445C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E80C937E-E764-4199-8A7E-1BFC5D59445C}.Release|ARM.ActiveCfg = Release|Any CPU
+		{E80C937E-E764-4199-8A7E-1BFC5D59445C}.Release|x64.ActiveCfg = Release|Any CPU
+		{E80C937E-E764-4199-8A7E-1BFC5D59445C}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

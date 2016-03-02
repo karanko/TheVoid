@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TheVoid
 {
-    public class Client
+    public class Client2
     {
         public static void UDPSend(System.Net.IPAddress SERVER_IP, int PORT_NO, string message)
         {

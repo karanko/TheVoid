@@ -1,4 +1,5 @@
-﻿using Jurassic;
+﻿using JSBeautifyLib;
+
 using NAudio.Midi;
 using System;
 using System.Collections.Generic;
@@ -9,132 +10,161 @@ using System.Threading.Tasks;
 
 namespace TheVoid
 {
-    public partial class  Combustion
+    public static class  Combustion
     {
 
-        private Dictionary<string, ScriptEngine> Engines;
-        private Dictionary<string, Delegate> functiondelegates = new Dictionary<string,Delegate>();
-        private Dictionary<string, string> functionalias = new Dictionary<string, string>();
-    //    public Midi Midi;
-        public Dictionary<string, object> GlobalVariables;
-        public Dictionary<string, string> Functions;
-        public List<string> ExecutingFunctions;
+        private static Dictionary<string, TheVoid.Engine> Engines = new Dictionary<string, TheVoid.Engine>();
+    //    public static Midi Midi;
+        private static Dictionary<string, object> GlobalVariables = new Dictionary<string, object>();
+        //public static Dictionary<string, string> Functions = = new Dictionary<string, string>();
+        //public static List<string> ExecutingFunctions = new List<string>();
 
-        public Combustion()
+        //private static string Beautify(string script)
+        //{
+        //    return new JSBeautify(script, new JSBeautifyOptions { preserve_newlines = true }).GetResult();
+        //}
+        public static string TickFunction
         {
-            this.ExecutingFunctions = new List<string>();
-        //    this.Midi = new Midi();
-            this.Engines =  new Dictionary<string, Jurassic.ScriptEngine>();
-            this.GlobalVariables = new Dictionary<string, object>();
-            this.Functions = new Dictionary<string, string>();
-            this.GlobalVariables.Add("seed", new Random().Next(1, 30));
-            this.Functions.Add("dump", "x=(seed%tick);");
-           // this.ExecutingFunctions.Add("dump");
-          //  this.Functions.Add("hhy", "uuyyy");
-            if(System.IO.File.Exists("demofunction.txt"))
-            {
-                this.Functions.Add("Demo", System.IO.File.ReadAllText("demofunction.txt"));
-              //  this.ExecutingFunctions.Add("Demo");
-            }
-            if (System.IO.File.Exists("demofunctiondrum.txt"))
-            {
-                this.Functions.Add("DemoDrum", System.IO.File.ReadAllText("demofunctiondrum.txt"));
-               // this.ExecutingFunctions.Add("DemoDrum");
-            }
+            get { return Options.Read("TickFunction", "bang()"); }
+            set { Options.Write("TickFunction", value); }
+        }
+         public static List<string> ListEngines()  
+         {
+             return TheVoid.Combustion.Engines.Keys.ToList<string>();
+         }
+        public static void init()
+        {
 
-            functiondelegates.Add("log", new Action<string>(str => System.Diagnostics.Debug.WriteLine(str)));
-            functiondelegates.Add("ConsoleBeep", new Action<int>(i1 => Console.Beep(i1, 200)));
-            functiondelegates.Add("Exec", new Action<string>(code => this.Engines["master"].Evaluate(code)));
-            functiondelegates.Add("Include", new Action<string>(path => this.Engines["master"].Evaluate(new System.Net.WebClient().DownloadString(path))));
+           // ExecutingFunctions 
+        //    Midi = new Midi();
+         //   Engines = 
+            //GlobalVariables
+            //Functions 
+       
+          //  Functions.Add("dump", "x=(seed%tick);");
+          // //- Functions.Add("tick", "now = Date.now();");
+          // // ExecutingFunctions.Add("dump");
+          ////  Functions.Add("hhy", "uuyyy");
+          //  if(System.IO.File.Exists("demofunction.txt"))
+          //  {
+          //      Functions.Add("Demo", System.IO.File.ReadAllText("demofunction.txt"));
+          //    //  ExecutingFunctions.Add("Demo");
+          //  }
+          //  if (System.IO.File.Exists("demofunctiondrum.txt"))
+          //  {
+          //      Functions.Add("DemoDrum", System.IO.File.ReadAllText("demofunctiondrum.txt"));
+          //     // ExecutingFunctions.Add("DemoDrum");
+          //  }
+            // Export my own api to the JavaScript world
+        
+              //CombustionMidi();
 
-            functionalias.Add("Require", "function Require(path){Include(path);}");
-            functionalias.Add("include", "function include(path){Include(path);}");
-            functionalias.Add("require", "function require(path){Include(path);}");
-            functionalias.Add("Load", "function Load(path){Include(path);}");
-            functionalias.Add("load", "function load(path){Include(path);}");
-            CombustionMidi();
+            /* create default engine */
+         //   Execute("Default", "");
+
         }
         
-        private object GetVariable(string name,object isnotset)
+        private static object GetVariable(string name,object isnotset)
         {
                         name = name.ToLower();
-            if (!this.GlobalVariables.ContainsKey(name))
+            if (!GlobalVariables.ContainsKey(name))
             {
-                this.GlobalVariables.Add(name, isnotset);
+                GlobalVariables.Add(name, isnotset);
             }
-            return this.GlobalVariables[name];
+            return GlobalVariables[name];
         }
-        private object SetVariable(string name,object value)
+        private static object SetVariable(string name,object value)
         {
             name = name.ToLower();
-            if (!this.GlobalVariables.ContainsKey(name))
+            if (!GlobalVariables.ContainsKey(name))
             {
-                this.GlobalVariables.Add(name, value);
+                GlobalVariables.Add(name, value);
             }
             else
             {
-                this.GlobalVariables[name] = value;
+                GlobalVariables[name] = value;
             }
-            return this.GlobalVariables[name];
+            return GlobalVariables[name];
         }
         
 
-        private ScriptEngine Engine(string enginename)
+        private static TheVoid.Engine Engine(string enginename)
         {
             enginename = enginename.ToLower();
-            if (!this.Engines.ContainsKey(enginename))
+            if (!Engines.ContainsKey(enginename))
             {
-                this.Engines.Add(enginename, new ScriptEngine());
-
-                 foreach (var Function in functiondelegates)
-                 {
-                     Debug.WriteLine("Loading Function:" + Function.Key);
-                      this.Engines[enginename].SetGlobalFunction(Function.Key, Function.Value);
-                 }
-                 foreach (var Function in functionalias)
-                 {
-                       Debug.WriteLine("Loading Alias:" + Function.Key);
-                      this.Engines[enginename].Execute(Function.Value);
-                 }
-                
+                Engines.Add(enginename, new TheVoid.Engine());               
             }
            
-            return this.Engines[enginename];
+            return Engines[enginename];
         }
-        public void Execute(string enginename,string script)
+        public static void Execute(string script)
+        {
+            Execute("default", script);
+        }
+        public static void Execute(string enginename ,string script)
         {
             try
             {
-                this.Engine(enginename).Execute(script);
+                Engine(enginename).Execute(script);
             }
             catch(Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
+                Utility.Print(ex.Message);
             }
         }
-        private void SetGlobalVariables()
+        public static string  Evaluate( string script)
+        {
+           return  Evaluate("default", script);
+        }
+        public static string Evaluate(string enginename, string script)
+        {
+            try
+            {
+
+                return Engine(enginename).Evaluate(script);
+                
+            }
+            catch (Exception ex)
+            {
+                Utility.Print(ex.Message);
+                return null;
+            }
+        }
+        private static void SetGlobalVariables()
         {
             SetAllVariables(GlobalVariables);
         }
-        private void SetAllVariables(Dictionary<string, object> globaloverride)
+        private static void SetAllVariables(Dictionary<string, object> globaloverride)
         {
-            foreach (var e in this.Engines.Values)
+            foreach (var e in Engines.Values)
             {
                 foreach (var v in globaloverride)
                 {
                     e.SetGlobalValue(v.Key, v.Value);
                 }
             }
-        }        
-        private void SetFunctions()
+        }
+
+     /*   public static string BuildArray(string arrayname, int[] ooo)
+        {
+            string result = arrayname + " = [];";
+            int i = 1;
+            foreach (var x in ooo)
+            {
+                result += arrayname + "[" + i.ToString() + "] = " + x.ToString() + ";";
+            }
+            return result;
+        }*/
+      /*  private static void SetFunctions()
         {
             try
             {
-                foreach (var e in this.Engines.Values)
+                foreach (var e in Engines.Values)
                 {
                     try
                     {
-                        foreach (var v in this.Functions)
+                        foreach (var v in Functions)
                         {
                             try
                             {
@@ -148,117 +178,81 @@ namespace TheVoid
             }
             catch { }
         }
-
-        /*
-        public void AddGlobalVariable(string s, object o )
-        {
-
-            GlobalVariables.Add(s,o);
-
-        }*/
-
-        private void tick(int t)
+        */
+        public static void Stop()
         {
             try
             {
-            
-                if (t > -1)
-                {
-                    Debug.WriteLine("TICK:" + t);
-                    SetVariable("tick", t);
-                }
-                else
-                {
-                    SetVariable("tick", (int)GetVariable("tick", 0) + 1);
-                }
+                SetVariable("tick", -1);
+                SetGlobalVariables();
+                //SetFunctions();
+                Utility.Print("Stop");
 
-                this.SetGlobalVariables();
-                SetFunctions();
-                foreach (var x in this.ExecutingFunctions)
-                {
-                    Debug.WriteLine("exec js");
-                    this.Execute(x.ToLower(), x + "();");
-
-                    //    new Thread(this.thisthing).Start();
-                }
             }
             catch (Exception ex)
             {
 
-                System.Diagnostics.Debug.WriteLine(ex.Message);
+                Utility.Print(ex.Message);
             }
-
         }
-        public void tickhandler(object source, System.Timers.ElapsedEventArgs e)
-        {
-            tick(-1);
-        }
-        private int rawticks;
-        private int clockticks;
-        public  void midiIn_MessageReceived(object sender, MidiInMessageEventArgs e)
+  
+        public static void Start()
         {
             try
             {
-                // Exit if the MidiEvent is null or is the AutoSensing command code  
-                if (e.MidiEvent != null && e.MidiEvent.CommandCode == MidiCommandCode.AutoSensing)
-                {
-                    return;
-                }
+                SetVariable("tick", 0);
+                SetGlobalVariables();
+                //SetFunctions();
+                /*  foreach (var x in ExecutingFunctions)
+                  {
 
-                if (e.MidiEvent != null && e.MidiEvent.CommandCode == MidiCommandCode.StartSequence)
-                {
-                    Debug.WriteLine("Start");
-                    rawticks = -1;
-                    clockticks = -1;
+                      Execute(x.ToLower(), x + "();");
 
-                }
-                if (e.MidiEvent != null && e.MidiEvent.CommandCode == MidiCommandCode.StopSequence)
-                {
-                    Debug.WriteLine("Stop");
-                    rawticks = -1;
+                      //    new Thread(thisthing).Start();
+                  }*/
+                Utility.Print("Start");
 
-                }
-                if (e.MidiEvent != null && e.MidiEvent.CommandCode == MidiCommandCode.ContinueSequence)
-                {
-                    Debug.WriteLine("ContinueSequence");
-
-
-                }
-                if (e.MidiEvent != null && e.MidiEvent.CommandCode == MidiCommandCode.MetaEvent)
-                {
-                    Debug.WriteLine(e.MidiEvent.GetAsShortMessage());
-                }
-
-                if (e.MidiEvent != null && e.MidiEvent.CommandCode == MidiCommandCode.TimingClock)
-                {
-                    rawticks++;
-                    if (rawticks % 6 == 0 && clockticks != ((rawticks / 6) + 1) % 32)
-                    {
-                        clockticks = ((rawticks / 6)) % 32;
-                        Debug.WriteLine("clockticks:" + clockticks);
-                        tick(clockticks);
-
-                    }
-                    //    Console.WriteLine(e.MidiEvent.AbsoluteTime);
-
-                    //  Console.WriteLine("rawticks:" + rawticks);
-
-                }
-
-
-                /*   Console.WriteLine(e.MidiEvent.ToString());* 
-                   Console.WriteLine(e.MidiEvent.CommandCode.ToString());
-                 */
             }
             catch (Exception ex)
             {
 
-                Debug.WriteLine(ex.Message);
-
+                Utility.Print(ex.Message);
             }
         }
-   
-    
+        public static void Tick()
+        {
+            try
+            {
+                SetVariable("tick", (int)GetVariable("tick", 0) + 1);
+                SetGlobalVariables();
+                //SetFunctions();
+                /*  foreach (var x in ExecutingFunctions)
+                  {
+
+                      Execute(x.ToLower(), x + "();");
+
+                      //    new Thread(thisthing).Start();
+                  }*/
+            }
+            catch (Exception ex)
+            {
+
+                Utility.Print(ex.Message);
+            }
+            foreach (var x in ListEngines())
+            {
+                try
+                {
+                    Execute(x, Combustion.TickFunction + ";");
+                }
+                catch (Exception ex)
+                {
+
+                    Utility.Print(ex.Message);
+                }
+            }
+
+        }
     }
 
 }

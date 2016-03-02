@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ServiceModel;
 using System.Text;
-using WCFTest;
+using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 {
@@ -11,22 +10,12 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Uri baseAddress = new Uri("http://127.0.0.1:8181/hello");
+            TheVoid.CI.APC.ClearBoard();
+            TheVoid.CI.APC.GuessMidiPorts();
+            TheVoid.CI.APC.init();
+            Console.ReadLine();
+            TheVoid.CI.APC.ClearBoard();
 
-            using (ServiceHost host = new ServiceHost(typeof(WCFTest.Service), baseAddress))
-            {
-
-                host.AddServiceEndpoint(typeof(IService), new BasicHttpBinding(), "Service");
-
-                host.Open();
-
-                Console.WriteLine("The service is ready at {0}", baseAddress);
-                Console.WriteLine("Press <Enter> to stop the service.");
-                Console.ReadLine();
-
-                // Close the ServiceHost.
-                host.Close();
-            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NAudio.Midi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,16 +10,18 @@ using System.Timers;
 namespace TheVoid
 {
     public class Ignition
-    {/*
+    {
+   
+
         public Ignition()
         {
-           // aTimer = new System.Timers.Timer();
-          //  aTimer.Enabled = false;
+            aTimer = new System.Timers.Timer();
+            aTimer.Enabled = false;
         //    aTimer.Interval = 500;
-          //  aTimer.Elapsed += new ElapsedEventHandler(tick);
-          //  this.bpm = 125;
+            aTimer.Elapsed += new ElapsedEventHandler(tick);
+            this.bpm = 125;
         }
-       // private System.Timers.Timer aTimer;
+        private System.Timers.Timer aTimer;
         public int ticks = 0;
         //public object thisthing;
         public int beats = 4;
@@ -73,6 +76,5 @@ namespace TheVoid
 
         //    new Thread(this.thisthing).Start();
         }
-      * */
     }
 }

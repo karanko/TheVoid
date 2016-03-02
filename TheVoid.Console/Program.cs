@@ -10,10 +10,17 @@ namespace TheVoid.Console
     {
         static void Main(string[] args)
         {
-
-            TheVoid.Combustion comb = new Combustion();
-            comb.Midi.
-
+       
+            TheVoid.Client.Service.ServiceClient service =  new TheVoid.Client.Service.ServiceClient();
+            while (true)
+            {
+                try
+                {
+                    System.Console.WriteLine(service.Evaluate("default", System.Console.ReadLine()));
+                }
+                catch (Exception ex) { System.Console.WriteLine(ex.Message); }
+            }
+        
         }
     }
 }

@@ -47,6 +47,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APCForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APCForm.Designer.cs">
+      <DependentUpon>APCForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="APCPageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="APCPageControl.Designer.cs">
+      <DependentUpon>APCPageControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommandForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +85,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="APCPageControl.resx">
+      <DependentUpon>APCPageControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CommandForm.resx">
       <DependentUpon>CommandForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +109,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\TheVoid.Client.Proxy.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -112,6 +128,9 @@
       <Project>{a27fd18b-61eb-498a-9016-9961d62390f5}</Project>
       <Name>TheVoid.Client</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

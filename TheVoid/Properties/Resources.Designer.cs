@@ -70,7 +70,21 @@ namespace TheVoid.Properties {
         ///        p=p[x];
         ///    }
         ///    p[oper.pop()]=val;
-        ///}.
+        ///}
+        ///
+        ///function apcnote(pnumber, channel, note) {
+        ///
+        ///    page = JSON.parse(apcpageraw(pnumber));
+        ///    if (!page.Mute) {
+        ///        if (page.Pattern.Steps[tick % page.Pattern.Length]) {
+        ///            noteout(note, page.Vel, channel, 250);
+        ///        }
+        ///    }
+        ///}
+        ///
+        ///function scale(name, root, note) {
+        ///
+        ///  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string InternalFunctions {
             get {

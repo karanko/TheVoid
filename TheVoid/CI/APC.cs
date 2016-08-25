@@ -1,9 +1,11 @@
 ﻿using NAudio.Midi;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace TheVoid.CI
@@ -85,8 +87,8 @@ namespace TheVoid.CI
         private static int _currentpage;
         private static bool _shiftisdown = false;
 
-        private static Dictionary<int, int> controlchangecache = new Dictionary<int, int>();
-        private static Dictionary<int, int> notecache = new Dictionary<int, int>();
+        private static ConcurrentDictionary<int, int> controlchangecache = new ConcurrentDictionary<int, int>();
+        private static ConcurrentDictionary<int, int> notecache = new ConcurrentDictionary<int, int>();
         private static void MessageReceived(object sender, MidiInMessageEventArgs e)
         {
             try
@@ -127,8 +129,70 @@ namespace TheVoid.CI
                             }
                             i++;
                         }
-                         DrawPage(_currentpage);
+                         DrawPage(_currentpage,false);
                     }
+                    else if (x.NoteNumber == 87)
+                    {
+                        Page(_currentpage).Blank1 = !Page(_currentpage).Blank1;                       
+                        DrawPage(_currentpage, false);
+                        DrawPage(_currentpage, false);
+                    }
+                    else if (x.NoteNumber == 88)
+                    {
+                        Page(_currentpage).Blank2 = !Page(_currentpage).Blank2;
+                         DrawPage(_currentpage, false);
+                         DrawPage(_currentpage, false);
+                    }
+                    else if (x.NoteNumber == 86)
+                    {
+                        Page(_currentpage).Softkeys = !Page(_currentpage).Softkeys;
+                        DrawPage(_currentpage, true);
+                        DrawPage(_currentpage, false);
+                    }
+
+                    //fader ctrl
+                    else if (x.NoteNumber == 68)
+                    {
+                        Page(_currentpage).Volume = !Page(_currentpage).Volume;
+                        DrawPage(_currentpage, false);
+                        DrawPage(_currentpage, false);
+                    }
+                    else if (x.NoteNumber == 69)
+                    {
+                        Page(_currentpage).Pan = !Page(_currentpage).Pan;
+                        DrawPage(_currentpage, false);
+                        DrawPage(_currentpage, false);
+                    }
+                    else if (x.NoteNumber == 70)
+                    {
+                        Page(_currentpage).Send = !Page(_currentpage).Send;
+                        DrawPage(_currentpage, false);
+                        DrawPage(_currentpage, false);
+                    }
+                    else if (x.NoteNumber == 71)
+                    {
+                        Page(_currentpage).Device = !Page(_currentpage).Device;
+                        DrawPage(_currentpage, false);
+                        DrawPage(_currentpage, false);
+                    }
+
+
+                    else if (x.NoteNumber == 66)
+                    {
+                        Page(_currentpage).OctShift = -1;
+                        DrawPage(_currentpage, false);
+                        DrawPage(_currentpage, false);
+                    }
+
+                    else if (x.NoteNumber == 67)
+                    {
+                        Page(_currentpage).OctShift = +1;
+                        DrawPage(_currentpage, false);
+                        DrawPage(_currentpage, false);
+                    }
+
+                
+
                     else if (x.NoteNumber == 89)
                     {
                        int i = 0;
@@ -150,11 +214,13 @@ namespace TheVoid.CI
                     else if (x.NoteNumber == 85)
                     {
                         Page(_currentpage).Mute = !Page(_currentpage).Mute;
-                         DrawPage(_currentpage);
+                        DrawPage(_currentpage, false);
                     }
                     else if (x.NoteNumber <= 63)
                     {
-                        MainGridHandler(x.NoteNumber);
+                      
+                            MainGridHandler(x.NoteNumber);
+                      
                     }
                     else if (x.NoteNumber == 64)
                     {
@@ -176,6 +242,11 @@ namespace TheVoid.CI
                     {
                         _shiftisdown = true;
                     }
+                    else
+                    {
+                        Utility.Print(x.NoteNumber);
+                       // Utility.Print(e.MidiEvent.CommandCode.ToString());
+                    }
                 }
                 else if (e.MidiEvent != null && e.MidiEvent.CommandCode == MidiCommandCode.NoteOff)
                 {
@@ -184,12 +255,14 @@ namespace TheVoid.CI
                     if (x.NoteNumber == 98)
                     {
                         _shiftisdown = false;
+                        DrawCurrentPage(false);
+                        DrawCurrentPage(false);
                     }
                 }
                 else
                 {
-                    //Utility.Print(e.MidiEvent.ToString());
-                    //Utility.Print(e.MidiEvent.CommandCode.ToString());
+                    Utility.Print(e.MidiEvent.ToString());
+                    Utility.Print(e.MidiEvent.CommandCode.ToString());
                 }
             }
             catch (Exception ex)
@@ -208,7 +281,7 @@ namespace TheVoid.CI
 
             if (!APC.controlchangecache.Keys.Contains(CC))
             {
-                APC.controlchangecache.Add(CC, value);
+                APC.controlchangecache.TryAdd(CC, value);
             }
             APC.controlchangecache[CC] = value;
             if ((CC >= 48) && (CC <= 55))
@@ -230,21 +303,29 @@ namespace TheVoid.CI
         private static void SetLED(int note, LED led)
         {
             int channel = 1;
-
+          
             if (!APC.notecache.Keys.Contains(note))
             {
-                APC.notecache.Add(note, Convert.ToInt16(led));
+                APC.notecache.TryAdd(note, Convert.ToInt16(led));
             }
             else
             {
-                Midi.MidiOutDevice(_midiportout).Send(MidiMessage.StopNote(note, 0, channel).RawData);
+                try
+                {
+                    Midi.MidiOutDevice(_midiportout).Send(MidiMessage.StopNote(note, 0, channel).RawData);
+                }
+                catch
+                {
+                    Midi.MidiOutDevice(_midiportout).Send(MidiMessage.StopNote(note, 0, channel).RawData);
+                }
                 APC.notecache[note] = Convert.ToInt16(led);
             }
 
             if (led == 0)
             {
                 Midi.MidiOutDevice(_midiportout).Send(MidiMessage.StartNote(note, APC.notecache[note], channel).RawData);
-                APC.notecache.Remove(note);
+                int remove;
+                APC.notecache.TryRemove(note, out remove);
             }
             else
             {
@@ -256,9 +337,17 @@ namespace TheVoid.CI
         private static void MainGridHandler(int note)
         {
 
-
-            _pages[_currentpage].Pattern.WriteStep(note, !_pages[_currentpage].Pattern.RecallStep(note));
-            DrawPage(_currentpage,false);
+            if (!Page(_currentpage).Softkeys)
+            {
+                _pages[_currentpage].Pattern.WriteStep(note, !_pages[_currentpage].Pattern.RecallStep(note));
+                DrawPage(_currentpage, false);
+            }
+            else
+            {
+                _pages[_currentpage].Note = 36 + (12 * _pages[_currentpage].OctShift) + note;
+                DrawPage(_currentpage, true);
+            }
+          
 
             // int col = -1;
             // if (APC.notecache.Keys.Contains(note))
@@ -296,29 +385,36 @@ namespace TheVoid.CI
         public static void ClearBoard()
         {
             //  
-            for (int note = 0; note <= 63; note++)
-            {
-                try
-                {
-                    //  Utility.Print(note);
 
-                    Midi.MidiOutDevice(_midiportout).Send(MidiMessage.StopNote(note, 0, 1).RawData);
-                    Midi.MidiOutDevice(_midiportout).Send(MidiMessage.StartNote(note, 0, 1).RawData);
-                    Midi.MidiOutDevice(_midiportout).Send(MidiMessage.StopNote(note, 0, 1).RawData);
-                }
-                catch (Exception ex)
+
+            for (int i = 0; i <= 3; i++)
+            {
+                for (int note = 0; note <= 63; note++)
                 {
-                    Utility.Print(ex);
+
+                    try
+                    {
+                        //  Utility.Print(note);
+                            Midi.MidiOutDevice(_midiportout).Send(MidiMessage.StopNote(note, 0, 1).RawData);
+                            Midi.MidiOutDevice(_midiportout).Send(MidiMessage.StartNote(note, 0, 1).RawData);
+                            Midi.MidiOutDevice(_midiportout).Send(MidiMessage.StopNote(note, 0, 1).RawData);
+                   
+                    }
+                    catch (Exception ex)
+                    {
+                        Utility.Print(ex);
+                    }
                 }
+                Thread.Sleep(75);
             }
             notecache.Clear();
-
+          
         }
 
 
-        private static void DrawCurrentPage()
+        private static void DrawCurrentPage( bool clear= true)
         {
-            DrawPage(_currentpage);
+            DrawPage(_currentpage, clear);
         }
 
         private static void DrawPage(int number, bool clear = true)
@@ -326,23 +422,56 @@ namespace TheVoid.CI
             Page page = _pages[number];
             if (clear)
             {
-                System.Threading.Thread.Sleep(150);
+             //   System.Threading.Thread.Sleep(150);
                 ClearBoard();
             }
             int i = 0;
-            while (i <= page.Pattern.MaxSteps)
+            if (!Page(_currentpage).Softkeys)
             {
-                if (page.Pattern.RecallStep(i))
+                while (i <= 64)
                 {
-                    SetLED(i, page.led);
-                }
-                else
-                {
-                    SetLED(i, LED.Off);
-                }
-                i++;
-            }
+                    if (page.Pattern.RecallStep(i))
+                    {
+                        if (i + 1 == page.Pattern.Length)
+                        {
+                            if (page.led.Equals(LED.Green))
+                            {
+                                SetLED(i, LED.GreenBlink);
+                            }
+                            else if (page.led.Equals(LED.Red))
+                            {
+                                SetLED(i, LED.RedBlink);
+                            }
+                            else if (page.led.Equals(LED.Yellow))
+                            {
+                                SetLED(i, LED.YellowBlink);
+                            }
+                        }
+                        else
+                        {
+                            SetLED(i, page.led);
+                        }
+                    }
+                    else
+                    {
+                        if (i + 1 == page.Pattern.Length)
+                        {
+                            SetLED(i, LED.YellowBlink);
+                        }
+                        else {
+                            SetLED(i, LED.Off);
+                        }
 
+                    }
+                    i++;
+                }
+            }
+            else
+            {
+                SetLED((page.Note % 12), LED.Red); 
+
+
+            }
             if (Page(_currentpage).Solo)
             {
                 SetLED(83, LED.Red);
@@ -361,10 +490,84 @@ namespace TheVoid.CI
                 SetLED(85, LED.Off);
             }
 
+            if (Page(_currentpage).Blank1)
+            {
+                SetLED(87, LED.Red);
+            }
+            else
+            {
+                SetLED(87, LED.Off);
+            }
+            if (Page(_currentpage).Blank2)
+            {
+                SetLED(88, LED.Red);
+            }
+            else
+            {
+                SetLED(88, LED.Off);
+            }
+            if (Page(_currentpage).Softkeys)
+            {
+                SetLED(86, LED.Red);
+            }
+            else
+            {
+                SetLED(86, LED.Off);
+            }
+
+            if (Page(_currentpage).Volume)
+            {
+                SetLED(68, LED.Red);
+            }
+            else
+            {
+                SetLED(68, LED.Off);
+            }
+
+            if (Page(_currentpage).Pan)
+            {
+                SetLED(69, LED.Red);
+            }
+            else
+            {
+                SetLED(69, LED.Off);
+            }
+            if (Page(_currentpage).Send)
+            {
+                SetLED(70, LED.Red);
+            }
+            else
+            {
+                SetLED(70, LED.Off);
+            }
+            if (Page(_currentpage).Device)
+            {
+                SetLED(71, LED.Red);
+            }
+            else
+            {
+                SetLED(71, LED.Off);
+            }
+
+            SetLED(66, LED.Off);
+                SetLED(67, LED.Off);
+            if(Page(_currentpage).OctShift == -1)
+            {
+                SetLED(66, LED.Red);
+            }
+            else if (Page(_currentpage).OctShift == 1)
+            {
+                SetLED(67, LED.Red);           
+            }
+
+
 
         }
-
-        public static Page Page(int i)
+        public static List<TheVoid.CI.Page> ListPages()
+        {
+            return _pages;
+        }
+        public static Page Page(int i )
         {
 
             return _pages[i];

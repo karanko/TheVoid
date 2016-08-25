@@ -55,6 +55,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Service References\Service\Service.wsdl" />
+    <None Include="Service References\Service\TheVoid.Client.Service.Page.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\Service\TheVoid.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -62,6 +65,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\Service\TheVoid2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Service\TheVoid3.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

@@ -187,3 +187,12 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+/LiveApp
+/POP.Core
+/POP.PostFile
+/TheVoid.AndroidMonkeyWebber
+/TheVoid.BangDesigner
+/TheVoid.ClientTools
+/TheVoid.Database
+/TheVoid.LiveApp
+/TheVoid.TimeMachine

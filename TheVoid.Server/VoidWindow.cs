@@ -14,6 +14,7 @@ namespace TheVoid.Server
 {
     public partial class VoidWindow : Form
     {
+  
         public VoidWindow()
         {
           //  new FastEval().Show();
@@ -78,7 +79,7 @@ namespace TheVoid.Server
             }
             TheVoid.Utility.Messages.CollectionChanged += Messages_CollectionChanged;
             TheVoid.Utility.Print("Init Complete");
-
+            Log.Checked = Utility.Log;
         }
 
         private void Messages_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -131,15 +132,29 @@ namespace TheVoid.Server
             this.Show();
         }
 
+        public bool AllowClose = true;
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            try
+            if (AllowClose)
             {
-                host.Close();
-                oscserver.Stop();
-                Environment.Exit(0);
+                try
+                {
+                    host.Close();
+                    oscserver.Stop();
+                    TheVoid.CI.APC.ClearBoard();
+                    Environment.Exit(0);
+                }
+                catch { }
             }
-            catch { }
+            else
+            {
+                e.Cancel = true;
+                
+
+                this.ShowInTaskbar = false;
+                notifyIcon.Visible = true;
+                this.Hide();
+            }
             
         }
 
@@ -212,9 +227,14 @@ namespace TheVoid.Server
 
         }
 
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
 
+        }
 
-
-   
+        private void Log_Click(object sender, EventArgs e)
+        {
+            Utility.Log = Log.Checked;
+        }
     }
 }

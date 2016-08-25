@@ -2,6 +2,7 @@
 
 using NAudio.Midi;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -13,10 +14,10 @@ namespace TheVoid
     public static class  Combustion
     {
 
-        private static Dictionary<string, TheVoid.Engine> Engines = new Dictionary<string, TheVoid.Engine>();
+        private static ConcurrentDictionary<string, TheVoid.Engine> Engines = new ConcurrentDictionary<string, TheVoid.Engine>();
     //    public static Midi Midi;
-        private static Dictionary<string, object> GlobalVariables = new Dictionary<string, object>();
-        //public static Dictionary<string, string> Functions = = new Dictionary<string, string>();
+        private static ConcurrentDictionary<string, object> GlobalVariables = new ConcurrentDictionary<string, object>();
+        //public static ConcurrentDictionary<string, string> Functions = = new ConcurrentDictionary<string, string>();
         //public static List<string> ExecutingFunctions = new List<string>();
 
         //private static string Beautify(string script)
@@ -41,19 +42,19 @@ namespace TheVoid
             //GlobalVariables
             //Functions 
        
-          //  Functions.Add("dump", "x=(seed%tick);");
-          // //- Functions.Add("tick", "now = Date.now();");
-          // // ExecutingFunctions.Add("dump");
-          ////  Functions.Add("hhy", "uuyyy");
+          //  Functions.TryAdd("dump", "x=(seed%tick);");
+          // //- Functions.TryAdd("tick", "now = Date.now();");
+          // // ExecutingFunctions.TryAdd("dump");
+          ////  Functions.TryAdd("hhy", "uuyyy");
           //  if(System.IO.File.Exists("demofunction.txt"))
           //  {
-          //      Functions.Add("Demo", System.IO.File.ReadAllText("demofunction.txt"));
-          //    //  ExecutingFunctions.Add("Demo");
+          //      Functions.TryAdd("Demo", System.IO.File.ReadAllText("demofunction.txt"));
+          //    //  ExecutingFunctions.TryAdd("Demo");
           //  }
           //  if (System.IO.File.Exists("demofunctiondrum.txt"))
           //  {
-          //      Functions.Add("DemoDrum", System.IO.File.ReadAllText("demofunctiondrum.txt"));
-          //     // ExecutingFunctions.Add("DemoDrum");
+          //      Functions.TryAdd("DemoDrum", System.IO.File.ReadAllText("demofunctiondrum.txt"));
+          //     // ExecutingFunctions.TryAdd("DemoDrum");
           //  }
             // Export my own api to the JavaScript world
         
@@ -69,7 +70,7 @@ namespace TheVoid
                         name = name.ToLower();
             if (!GlobalVariables.ContainsKey(name))
             {
-                GlobalVariables.Add(name, isnotset);
+                GlobalVariables.TryAdd(name, isnotset);
             }
             return GlobalVariables[name];
         }
@@ -78,7 +79,7 @@ namespace TheVoid
             name = name.ToLower();
             if (!GlobalVariables.ContainsKey(name))
             {
-                GlobalVariables.Add(name, value);
+                GlobalVariables.TryAdd(name, value);
             }
             else
             {
@@ -93,7 +94,7 @@ namespace TheVoid
             enginename = enginename.ToLower();
             if (!Engines.ContainsKey(enginename))
             {
-                Engines.Add(enginename, new TheVoid.Engine());               
+                Engines.TryAdd(enginename, new TheVoid.Engine());               
             }
            
             return Engines[enginename];
@@ -111,6 +112,7 @@ namespace TheVoid
             catch(Exception ex)
             {
                 Utility.Print(ex.Message);
+                Utility.Print(script);
             }
         }
         public static string  Evaluate( string script)
@@ -135,7 +137,7 @@ namespace TheVoid
         {
             SetAllVariables(GlobalVariables);
         }
-        private static void SetAllVariables(Dictionary<string, object> globaloverride)
+        private static void SetAllVariables(ConcurrentDictionary<string, object> globaloverride)
         {
             foreach (var e in Engines.Values)
             {

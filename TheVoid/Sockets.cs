@@ -31,7 +31,8 @@ namespace TheVoid
                                   {
                                       try
                                       {
-                                          Combustion.Execute(Encoding.ASCII.GetString(data, 0, data.Length));
+                                          string thiscms = Encoding.ASCII.GetString(data, 0, data.Length);
+                                          Combustion.Execute(thiscms);
                                       }
                                       catch (Exception ex)
                                       {
@@ -72,9 +73,9 @@ namespace TheVoid
                     message = message.Remove(message.Length - 1);
                 }
 
-                
-                    Thread.CurrentThread.IsBackground = true;
-                    data = Encoding.ASCII.GetBytes(message + Environment.NewLine);
+
+                Thread.CurrentThread.IsBackground = true;
+                    data = Encoding.ASCII.GetBytes(message + Environment.NewLine + ";"   );
                     if (data.Length > 0)
                     {
                         var client = new UdpClient();

@@ -10,6 +10,13 @@ namespace TheVoid.Service
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class Service : IService
     {
+        public List<TheVoid.CI.Page> APCPages()
+        {
+           
+
+            return CI.APC.ListPages();
+
+        }
    
         public List<string> ListEngines()
         {

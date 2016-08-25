@@ -9,17 +9,225 @@
 //------------------------------------------------------------------------------
 
 namespace TheVoid.Client.Service {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Page", Namespace="http://schemas.datacontract.org/2004/07/TheVoid.CI")]
+    [System.SerializableAttribute()]
+    public partial class Page : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool MuteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NoteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TheVoid.Client.Service.Pattern PatternField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool SoloField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int VelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TheVoid.Client.Service.APCLED ledField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Mute {
+            get {
+                return this.MuteField;
+            }
+            set {
+                if ((this.MuteField.Equals(value) != true)) {
+                    this.MuteField = value;
+                    this.RaisePropertyChanged("Mute");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Note {
+            get {
+                return this.NoteField;
+            }
+            set {
+                if ((this.NoteField.Equals(value) != true)) {
+                    this.NoteField = value;
+                    this.RaisePropertyChanged("Note");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TheVoid.Client.Service.Pattern Pattern {
+            get {
+                return this.PatternField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PatternField, value) != true)) {
+                    this.PatternField = value;
+                    this.RaisePropertyChanged("Pattern");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Solo {
+            get {
+                return this.SoloField;
+            }
+            set {
+                if ((this.SoloField.Equals(value) != true)) {
+                    this.SoloField = value;
+                    this.RaisePropertyChanged("Solo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Vel {
+            get {
+                return this.VelField;
+            }
+            set {
+                if ((this.VelField.Equals(value) != true)) {
+                    this.VelField = value;
+                    this.RaisePropertyChanged("Vel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TheVoid.Client.Service.APCLED led {
+            get {
+                return this.ledField;
+            }
+            set {
+                if ((this.ledField.Equals(value) != true)) {
+                    this.ledField = value;
+                    this.RaisePropertyChanged("led");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Pattern", Namespace="http://schemas.datacontract.org/2004/07/TheVoid.CI")]
+    [System.SerializableAttribute()]
+    public partial class Pattern : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LengthField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool[] StepsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Length {
+            get {
+                return this.LengthField;
+            }
+            set {
+                if ((this.LengthField.Equals(value) != true)) {
+                    this.LengthField = value;
+                    this.RaisePropertyChanged("Length");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool[] Steps {
+            get {
+                return this.StepsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StepsField, value) != true)) {
+                    this.StepsField = value;
+                    this.RaisePropertyChanged("Steps");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="APC.LED", Namespace="http://schemas.datacontract.org/2004/07/TheVoid.CI")]
+    public enum APCLED : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Off = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Green = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GreenBlink = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Red = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RedBlink = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Yellow = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        YellowBlink = 6,
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Service.IService")]
     public interface IService {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetData", ReplyAction="http://tempuri.org/IService/GetDataResponse")]
-        string GetData(int value);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetData", ReplyAction="http://tempuri.org/IService/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(int value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ListEngines", ReplyAction="http://tempuri.org/IService/ListEnginesResponse")]
         string[] ListEngines();
@@ -50,6 +258,12 @@ namespace TheVoid.Client.Service {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ListMessages", ReplyAction="http://tempuri.org/IService/ListMessagesResponse")]
         System.Threading.Tasks.Task<string[]> ListMessagesAsync(int lastmessage);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/APCPages", ReplyAction="http://tempuri.org/IService/APCPagesResponse")]
+        TheVoid.Client.Service.Page[] APCPages();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/APCPages", ReplyAction="http://tempuri.org/IService/APCPagesResponse")]
+        System.Threading.Tasks.Task<TheVoid.Client.Service.Page[]> APCPagesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -77,14 +291,6 @@ namespace TheVoid.Client.Service {
         
         public ServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public string GetData(int value) {
-            return base.Channel.GetData(value);
-        }
-        
-        public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
-            return base.Channel.GetDataAsync(value);
         }
         
         public string[] ListEngines() {
@@ -125,6 +331,14 @@ namespace TheVoid.Client.Service {
         
         public System.Threading.Tasks.Task<string[]> ListMessagesAsync(int lastmessage) {
             return base.Channel.ListMessagesAsync(lastmessage);
+        }
+        
+        public TheVoid.Client.Service.Page[] APCPages() {
+            return base.Channel.APCPages();
+        }
+        
+        public System.Threading.Tasks.Task<TheVoid.Client.Service.Page[]> APCPagesAsync() {
+            return base.Channel.APCPagesAsync();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using NAudio.Midi;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -129,7 +130,7 @@ namespace TheVoid
          }
          private static bool clockrunning = false;
 
-        private static Dictionary<int, int> controlchangecache = new Dictionary<int,int>();
+        private static ConcurrentDictionary<int, int> controlchangecache = new ConcurrentDictionary<int,int>();
         public static int GetCCValue(int CC)
         {
             int result = -1;
@@ -148,7 +149,7 @@ namespace TheVoid
 
             if (!Midi.controlchangecache.Keys.Contains(CC))
             {
-                 Midi.controlchangecache.Add(CC,value);
+                 Midi.controlchangecache.TryAdd(CC,value);
             }
             Midi.controlchangecache[CC] = value ;
           
@@ -179,8 +180,8 @@ namespace TheVoid
             return returnDevices;
         }
 
-        private static Dictionary<int, MidiOut> D_midiOut = new Dictionary<int, MidiOut>();
-        private static Dictionary<int, MidiIn> D_midiIn = new Dictionary<int, MidiIn>();
+        private static ConcurrentDictionary<int, MidiOut> D_midiOut = new ConcurrentDictionary<int, MidiOut>();
+        private static ConcurrentDictionary<int, MidiIn> D_midiIn = new ConcurrentDictionary<int, MidiIn>();
         
         public static MidiIn MidiInDevice(int i)
         {
@@ -188,7 +189,7 @@ namespace TheVoid
             {
                 if (!D_midiIn.ContainsKey(i))
                 {
-                    D_midiIn.Add(i, new MidiIn(i));
+                    D_midiIn.TryAdd(i, new MidiIn(i));
                     D_midiIn[i].MessageReceived += Midi.MessageReceived;
                     D_midiIn[i].Start();
                 }
@@ -209,7 +210,7 @@ namespace TheVoid
             {
                 if (!D_midiOut.ContainsKey(i))
                 {
-                    D_midiOut.Add(i, new MidiOut(i));
+                    D_midiOut.TryAdd(i, new MidiOut(i));
                 }
 
                 return D_midiOut[i];
@@ -303,7 +304,15 @@ namespace TheVoid
                 Thread.CurrentThread.Priority = ThreadPriority.Highest;
                 try
                 {
-                    NoteOut(Convert.ToInt16(words[0]), Convert.ToInt16(words[1]), Convert.ToInt16(words[2]), Convert.ToInt16(words[3]), Midi.MidiOutDeviceNumber);
+                    int n, v, c, l;
+                    if (int.TryParse(words[0], out n) && int.TryParse(words[1], out v) && int.TryParse(words[2], out c) && int.TryParse(words[3], out l))
+                    {
+                        NoteOut(n,v,c,l, Midi.MidiOutDeviceNumber);
+                    }
+                    else
+                    {
+                        TheVoid.Utility.Print("NoteOut:","Failed to input:"+ allparams);
+                    }
                 }
                 catch (Exception ex)
                 {

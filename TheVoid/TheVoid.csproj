@@ -65,6 +65,7 @@
     <Compile Include="CI\APC.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Combustion.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="Ignition.cs" />
     <Compile Include="JSBeautify.cs" />

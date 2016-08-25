@@ -18,31 +18,34 @@ namespace TheVoid
         {
             Print(prefix + message.ToString());
         }
+        public static bool Log = true;
         public static void Print(object message)
         {
 
-          //  Console.WriteLine(message.ToString());
-            System.Diagnostics.Debug.WriteLine(message.ToString());
-
-            try
+            if (Log)
             {
-                if (Messages == null)
+                //  Console.WriteLine(message.ToString());
+                System.Diagnostics.Debug.WriteLine(message.ToString());
+
+                try
                 {
-                    Messages = new ObservableCollection<string>();
-                }
-              
+                    if (Messages == null)
+                    {
+                        Messages = new ObservableCollection<string>();
+                    }
+
                     foreach (var msg in message.ToString().Split(new string[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries))
                     {
                         Messages.Add(msg);
                     }
-                
-            }
-            catch (Exception ex)
-            {
-               // Console.WriteLine(ex);
-                System.Diagnostics.Debug.WriteLine(ex);
-            }
 
+                }
+                catch (Exception ex)
+                {
+                    // Console.WriteLine(ex);
+                    System.Diagnostics.Debug.WriteLine(ex);
+                }
+            }
         }
         public static bool GetConfigSettingBool(string key, bool result = false)
         {

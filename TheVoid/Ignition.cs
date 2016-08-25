@@ -45,7 +45,7 @@ namespace TheVoid
             set { aTimer.Interval = Convert.ToInt16(value) ; }
         }
 
-        public void addeventhandler(ElapsedEventHandler x)
+        public void Addeventhandler(ElapsedEventHandler x)
         {
             aTimer.Elapsed += x;
        }

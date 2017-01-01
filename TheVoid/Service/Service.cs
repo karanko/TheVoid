@@ -21,16 +21,16 @@ namespace TheVoid.Service
         }
         public void Execute(string engine, string command)
         {
-            TheVoid.Combustion.Execute(engine, command);
+            TheVoid.Combustion.Execute(engine, command, "user");
         }
 
         public string Evaluate(string engine, string command)
         {
-            return TheVoid.Combustion.Evaluate(engine, command);
+            return TheVoid.Combustion.Evaluate(engine, command,"user");
         }
         public void CreateEngines(string engine)
         {
-            TheVoid.Combustion.Execute(engine, "enginecreatedon = Date.now();");
+            TheVoid.Combustion.Execute(engine, "enginecreatedon = Date.now();","system");
         }
 
        // public void CreateArray(string engine,string name,int[] array)

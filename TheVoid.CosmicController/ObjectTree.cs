@@ -12,7 +12,7 @@ namespace TheVoid.CosmicController
         private bool _isrefreshing = false;
         public void RefreshTree()
         {
-            string cmd = @" Object.keys(this).filter(function(x){if (!(this[x] instanceof Function)) return false; return !/\[native code\]/.test(this[x].toString()) ? true : false;});";
+            string cmd = @" Object.keys(this).filter(function(x){if (!(this[x] instanceof Function)) return false; return !/\[native code\]/.test(this[x].toString()) ? true : false;});/*do not log*/";
             _isrefreshing = true;
             listBox.BeginUpdate();
             try

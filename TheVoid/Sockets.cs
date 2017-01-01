@@ -17,6 +17,8 @@ namespace TheVoid
             {
                 new Thread(() =>
                        {
+                       try
+                       {
                            byte[] data = new byte[1024];
                            IPEndPoint ipep = new IPEndPoint(IPAddress.Any, port);
                            UdpClient newsock = new UdpClient(ipep);
@@ -32,13 +34,18 @@ namespace TheVoid
                                       try
                                       {
                                           string thiscms = Encoding.ASCII.GetString(data, 0, data.Length);
-                                          Combustion.Execute(thiscms);
+                                          Combustion.Execute("default",thiscms,"system");
                                       }
                                       catch (Exception ex)
                                       {
                                           Utility.Print("UDPException:" + ex.Message);
                                       }
                                   }).Start();
+                           }
+                           }
+                           catch (Exception ex)
+                           {
+                               Utility.Print(ex.Message);
                            }
                        }).Start();
             }

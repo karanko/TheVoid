@@ -19,10 +19,9 @@ namespace TheVoid.CosmicController
             InitializeComponent();
             Result = new ResultForm();
             ObsList = new ObjectTree();
-
+         
         }
-
-     
+        
         public  ResultForm Result;
         public ObjectTree ObsList;
         private void MainForm_Load(object sender, EventArgs e)
@@ -36,11 +35,12 @@ namespace TheVoid.CosmicController
          
             new CommandForm().Show(dockPanel1, DockState.Document);
             new CommandForm().Show(dockPanel1, DockState.Document);
-            new CommandForm(Client.Proxy.Evaluate("bang")).Show(dockPanel1, DockState.Document);
-            new CommandForm(Client.Proxy.Evaluate("readcache();")).Show(dockPanel1, DockState.Document);
-            new Memo().Show(dockPanel1, DockState.DockRightAutoHide);
+              new CommandForm(Client.Proxy.Evaluate("readcache();")).Show(dockPanel1, DockState.Document);
+            new CommandForm(Client.Proxy.Evaluate("if(typeof bang !== 'function'){ log('creating bang()'); this.bang = function bang(){ };}; bang/*do not log*/")).Show(dockPanel1, DockState.Document);
+          new Memo().Show(dockPanel1, DockState.DockRightAutoHide);
            new MessagesForm().Show(dockPanel1, DockState.DockRight);
-            ObsList.Show(dockPanel1, DockState.DockLeft);
+            new HistoryForm().Show(dockPanel1, DockState.DockLeft);
+            ObsList.Show(dockPanel1, DockState.DockLeftAutoHide);
         }
 
 

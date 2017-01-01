@@ -92,7 +92,7 @@ namespace TheVoid
 
           //  Console.WriteLine(string.Format("\nMessage Received [{0}]: {1}", message.SourceEndPoint.Address, message.Address));
            // Console.WriteLine(string.Format("Message contains {0} objects.", message.Data.Count));
-            Combustion.Execute( BuildObjectUpdateString( message.Address,message.Data ));
+            Combustion.Execute( "default",BuildObjectUpdateString( message.Address,message.Data ),"system");
               /*   
             for (int i = 0; i < message.Data.Count; i++)
             {

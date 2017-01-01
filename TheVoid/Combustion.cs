@@ -99,15 +99,15 @@ namespace TheVoid
            
             return Engines[enginename];
         }
-        public static void Execute(string script)
-        {
-            Execute("default", script);
-        }
-        public static void Execute(string enginename ,string script)
+        //public static void Execute(string script)
+        //{
+        //    Execute("default", script);
+        //}
+        public static void Execute(string enginename ,string script,string user = "unknown")
         {
             try
             {
-                Engine(enginename).Execute(script);
+                Engine(enginename).Execute(script, user);
             }
             catch(Exception ex)
             {
@@ -115,16 +115,16 @@ namespace TheVoid
                 Utility.Print(script);
             }
         }
-        public static string  Evaluate( string script)
-        {
-           return  Evaluate("default", script);
-        }
-        public static string Evaluate(string enginename, string script)
+        //public static string  Evaluate( string script)
+        //{
+        //   return  Evaluate("default", script);
+        //}
+        public static string Evaluate(string enginename, string script, string user = "unknown")
         {
             try
             {
 
-                return Engine(enginename).Evaluate(script);
+                return Engine(enginename).Evaluate(script,user);
                 
             }
             catch (Exception ex)

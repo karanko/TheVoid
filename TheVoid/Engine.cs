@@ -65,8 +65,8 @@ namespace TheVoid
             //    fd.TryAdd("SetBPM", new Action<int>(i1 => Midi.SyncOutBPM(i1)));
             //    fd.TryAdd("ClockRun", new Action<bool>(i1 => Midi.SyncOutClock(i1)));
                 fd.TryAdd("ConsoleBeep", new Action<int>(i1 => Console.Beep(i1, 200)));
-                fd.TryAdd("Exec", new Action<string>(code => this.Evaluate( code)));
-                fd.TryAdd("Include", new Action<string>(path => this.Evaluate( new System.Net.WebClient().DownloadString(path))));
+                fd.TryAdd("Exec", new Action<string>(code => this.Evaluate( code,  "system")));
+                fd.TryAdd("Include", new Action<string>(path => this.Evaluate( new System.Net.WebClient().DownloadString(path),"system")));
                 fd.TryAdd("readcache", new Func<string, string>(path => Beautify(System.IO.File.ReadAllText(@"cache.js"))));
                 fd.TryAdd("savetocache", new Action<string>(str => System.IO.File.WriteAllText(@"cache.js", Beautify(str))));
               //  fd.TryAdd("echotest", new Func<string, string>(str => str.ToString()));
@@ -88,11 +88,11 @@ namespace TheVoid
                 fd.TryAdd("listprintmessagesjson", new Func<string, string>(str => JsonConvert.SerializeObject(TheVoid.Utility.Messages.ToArray())));
                 fd.TryAdd("listbuiltinfunctionalias", new Func<string, string>(str => JsonConvert.SerializeObject(this.functionalias.Keys.ToArray())));
                 fd.TryAdd("listbuiltinfunctiondelegates", new Func<string, string>(str => JsonConvert.SerializeObject(this.functiondelegates.Keys.ToArray())));
-
+                fd.TryAdd("listexecutionmessages", new Func<string, string>(str => JsonConvert.SerializeObject(this._executiondata.ToArray())));
 
                 // database
-            //    fd.TryAdd("dbstore", new Func<string, object, bool >((s1,s2) => Database.Store(s1,s2)));
-             //   fd.TryAdd("dbrecall", new Func<string, object, object>((s1,s2) => Database.Recall(s1,s2)));
+                //    fd.TryAdd("dbstore", new Func<string, object, bool >((s1,s2) => Database.Store(s1,s2)));
+                //   fd.TryAdd("dbrecall", new Func<string, object, object>((s1,s2) => Database.Recall(s1,s2)));
 
 
                 return fd;
@@ -135,19 +135,58 @@ namespace TheVoid
                 return fa;
             }
         }
-
-        public  string Evaluate(string script)
+        private void LogExecution(string script, string id)
         {
-          //  ListFunctionsInCode(script);
+            /* if (id.ToLower() == "system")
+             {
+                 return;
+             }
+             if (script.Trim().StartsWith("JSON.parse"))
+             {
+                 return;
+             }
+            
+             if (!script.ToLower().Contains(" "))
+             {
+                 return;
+             }
+             if (this.functionalias.Keys.Contains( script.Replace("(","").Replace(")","").Replace(";","").Trim()))
+             {
+                 return;
+             }
+             if (this.functiondelegates.Keys.Contains(script.Replace("(", "").Replace(")", "").Replace(";", "").Trim()))
+             {
+                 return;
+             }
+
+             */
+            if (script.ToLower().Contains("do not log"))
+             {
+                 return;
+             }
+            if (!script.ToLower().Contains("function"))
+            {
+                return;
+            }
+
+            string metadata = String.Format("{1}|{0}", DateTime.UtcNow.TimeOfDay, id.ToUpper());
+                _executiondata.Add(metadata, script);
+            
+        }
+        public string Evaluate(string script, string user )
+        {
+            //  ListFunctionsInCode(script);
+            LogExecution(script, user);
             return Beautify(_engine.Evaluate(Beautify(script)).ToString());
         }
-        public  void Execute(string script)
+    public void Execute(string script, string user )
         {
-           // ListFunctionsInCode(script);
-
+            // ListFunctionsInCode(script);
+            LogExecution(script, user);
             _engine.Execute(Beautify(script));
         }
-
+        private DateTime _initaldate = new DateTime();
+        private Dictionary<string, string> _executiondata = new Dictionary<string, string>();
         public Engine()
         {
             _engine = new ScriptEngine();

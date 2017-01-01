@@ -19,7 +19,7 @@ namespace TheVoid.Server
         {
           //  new FastEval().Show();
             TheVoid.Utility.Print("------- TheVoid -------");
-            TheVoid.Utility.Print("Started:"+TheVoid.Combustion.Evaluate("Date.now();"));
+            TheVoid.Utility.Print("Started:"+TheVoid.Combustion.Evaluate("default","Date.now();","system"));
             TheVoid.CI.APC.ClearBoard();
             TheVoid.CI.APC.GuessMidiPorts();
             TheVoid.CI.APC.init();

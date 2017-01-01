@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TheVoid.CosmicController
@@ -15,16 +8,10 @@ namespace TheVoid.CosmicController
         public CommandForm(string content = null)
         {
             InitializeComponent();
-              service = new Service.ServiceClient();
 
-            service.Endpoint.Binding.OpenTimeout = new TimeSpan(0, 0, 3);
-            service.Endpoint.Binding.CloseTimeout = new TimeSpan(0, 0, 3);
-            service.Endpoint.Binding.SendTimeout = new TimeSpan(0, 0, 3);
-            service.Endpoint.Binding.ReceiveTimeout = new TimeSpan(0, 0, 3);
             Command.Text = content;
 
         }
-        Service.ServiceClient service;
 
         private void CommandForm_Load(object sender, EventArgs e)
         {
@@ -44,11 +31,11 @@ namespace TheVoid.CosmicController
                 {
                     if (Command.SelectionLength > 1)
                     {
-                        ((MainForm)this.ParentForm).Result.textBox.Text = service.Evaluate("Default", Command.SelectedText);
+                        ((MainForm)this.ParentForm).Result.textBox.Text = Client.Proxy.Evaluate("Default", Command.SelectedText);
                     }
                     else
                     {
-                        ((MainForm)this.ParentForm).Result.textBox.Text = service.Evaluate("Default", Command.Text);
+                        ((MainForm)this.ParentForm).Result.textBox.Text = Client.Proxy.Evaluate("Default", Command.Text);
 
                     }
                     // listBox1.Items.Clear();

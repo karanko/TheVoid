@@ -42,7 +42,7 @@ namespace TheVoid.Server
                 //bool localhost = true; ;
                 //if(localhost)
                 //{
-                //    serverurl.Host = "127.0.0.1";
+                  serverurl.Host = "127.0.0.1";
                 //}
                 host = new ServiceHost(typeof(TheVoid.Service.Service), serverurl.Uri);
                 

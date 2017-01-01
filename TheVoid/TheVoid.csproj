@@ -55,6 +55,8 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,11 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CI\APC.cs" />
-    <Compile Include="Client.cs" />
     <Compile Include="Combustion.cs" />
-    <Compile Include="Database.cs" />
     <Compile Include="Engine.cs" />
-    <Compile Include="Ignition.cs" />
     <Compile Include="JSBeautify.cs" />
     <Compile Include="Midi.cs" />
     <Compile Include="Options.cs" />
@@ -79,11 +78,36 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Client\Proxy.cs" />
+    <Compile Include="Service References\Client.ServiceProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service\IService.cs" />
+    <Compile Include="Service\Service.cs" />
     <Compile Include="Sockets.cs" />
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Service References\Client.ServiceProxy\Service.wsdl" />
+    <None Include="Service References\Client.ServiceProxy\TheVoid.Client.ServiceProxy.Page.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Client.ServiceProxy\TheVoid.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Client.ServiceProxy\TheVoid1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Client.ServiceProxy\TheVoid2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Client.ServiceProxy\TheVoid3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -93,6 +117,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\InternalFunctions.js" />
+    <None Include="Service References\Client.ServiceProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\Client.ServiceProxy\configuration.svcinfo" />
+    <None Include="Service References\Client.ServiceProxy\configuration91.svcinfo" />
+    <None Include="Service References\Client.ServiceProxy\TheVoid.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Client.ServiceProxy\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

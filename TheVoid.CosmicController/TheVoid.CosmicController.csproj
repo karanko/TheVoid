@@ -103,11 +103,6 @@
     <Compile Include="ResultForm.Designer.cs">
       <DependentUpon>ResultForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Service References\Service\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="CommandForm.resx">
       <DependentUpon>CommandForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,49 +146,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\Service\Service.wsdl" />
-    <None Include="Service References\Service\TheVoid1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Service\TheVoid2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Service\TheVoid3.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\Service\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Service\TheVoid.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Service\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Service\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Service\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TheVoid.Client\TheVoid.Client.csproj">
-      <Project>{a27fd18b-61eb-498a-9016-9961d62390f5}</Project>
-      <Name>TheVoid.Client</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="blech_PZB_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TheVoid\TheVoid.csproj">
+      <Project>{82651dbd-c8f6-48d7-9e98-8f502feecb80}</Project>
+      <Name>TheVoid</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

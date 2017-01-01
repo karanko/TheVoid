@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TheVoid.CI" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TheVoid.CI" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://127.0.0.1:9066/TheVoid?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfPage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Page" nillable="true" type="tns:Page" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPage" nillable="true" type="tns:ArrayOfPage" />
+  <xs:complexType name="Page">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Blank1" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Blank2" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Device" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Mute" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Note" type="xs:int" />
+      <xs:element minOccurs="0" name="OctShift" type="xs:int" />
+      <xs:element minOccurs="0" name="Pan" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Pattern" nillable="true" type="tns:Pattern" />
+      <xs:element minOccurs="0" name="Send" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Softkeys" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Solo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Vel" type="xs:int" />
+      <xs:element minOccurs="0" name="Volume" type="xs:boolean" />
+      <xs:element minOccurs="0" name="led" type="tns:APC.LED" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Page" nillable="true" type="tns:Page" />
+  <xs:complexType name="Pattern">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Length" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Steps" nillable="true" type="q1:ArrayOfboolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Pattern" nillable="true" type="tns:Pattern" />
+  <xs:simpleType name="APC.LED">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Off" />
+      <xs:enumeration value="Green" />
+      <xs:enumeration value="GreenBlink" />
+      <xs:enumeration value="Red" />
+      <xs:enumeration value="RedBlink" />
+      <xs:enumeration value="Yellow" />
+      <xs:enumeration value="YellowBlink" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="APC.LED" nillable="true" type="tns:APC.LED" />
+</xs:schema>

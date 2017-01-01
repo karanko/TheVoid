@@ -114,10 +114,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TheVoid.Service\TheVoid.Service.csproj">
-      <Project>{9dce1e76-1777-4263-8f36-86a2c424f0cb}</Project>
-      <Name>TheVoid.Service</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TheVoid\TheVoid.csproj">
       <Project>{82651dbd-c8f6-48d7-9e98-8f502feecb80}</Project>
       <Name>TheVoid</Name>

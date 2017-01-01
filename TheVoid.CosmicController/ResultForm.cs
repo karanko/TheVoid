@@ -1,4 +1,5 @@
 ﻿
+using JSBeautifyLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,12 +55,12 @@ namespace TheVoid.CosmicController
                 e.Handled = true;
             } 
         }
-
-        private void textBox_TextChanged(object sender, EventArgs e)
+        private JSBeautifyOptions jsboptions = new JSBeautifyOptions { preserve_newlines = true };
+    private void textBox_TextChanged(object sender, EventArgs e)
         {
-            //JSBeautify jsb = new JSBeautify(textBox.Text, new JSBeautifyOptions { preserve_newlines = false });
+            JSBeautify jsb = new JSBeautify(textBox.Text, jsboptions);
           
-            //textBox.Text = jsb.GetResult();
+            textBox.Text = jsb.GetResult();
         }
     }
 }

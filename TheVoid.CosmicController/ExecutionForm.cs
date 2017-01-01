@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TheVoid.CosmicController
@@ -16,15 +9,9 @@ namespace TheVoid.CosmicController
         {
             InitializeComponent();
 
-            service = new Service.ServiceClient();
-
-            service.Endpoint.Binding.OpenTimeout = new TimeSpan(0, 0, 2);
-            service.Endpoint.Binding.CloseTimeout = new TimeSpan(0, 0, 2);
-            service.Endpoint.Binding.SendTimeout = new TimeSpan(0, 0, 2);
-            service.Endpoint.Binding.ReceiveTimeout = new TimeSpan(0, 0, 2);
 
         }
-        Service.ServiceClient service;
+
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode.Equals(Keys.F5))
@@ -35,15 +22,18 @@ namespace TheVoid.CosmicController
                    
                     if (Command.SelectionLength > 1)
                     {
-                       ResultTextBox.Text =  service.Evaluate("Default", Command.SelectedText);
+                       ResultTextBox.Text = Client.Proxy.Evaluate("Default", Command.SelectedText);
                     }
                     else
                     {
-                        ResultTextBox.Text = service.Evaluate("Default", Command.Text);
+                        ResultTextBox.Text = Client.Proxy.Evaluate("Default", Command.Text);
+
 
                     }
-                   // listBox1.Items.Clear();
-                    listBox1.Items.AddRange(service.ListMessages(listBox1.Items.Count));
+                    listBox1.BeginUpdate();
+                    listBox1.Items.Clear();
+                    listBox1.Items.AddRange(Client.Proxy.ListAllMessages());
+                    listBox1.EndUpdate();
                 }
                 catch (Exception ex)
                 {

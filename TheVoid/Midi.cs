@@ -25,6 +25,7 @@ namespace TheVoid
         public static int MidiInDeviceNumber
         {
             get {var devnum = Options.Read("MidiInDevice", 0);
+              
             try
             {
                  

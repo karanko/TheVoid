@@ -173,6 +173,7 @@
             this.ClockOutButton.TabIndex = 9;
             this.ClockOutButton.Text = "Clock Out";
             this.ClockOutButton.UseVisualStyleBackColor = true;
+            this.ClockOutButton.Visible = false;
             this.ClockOutButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // OptionsForm

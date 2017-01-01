@@ -16,7 +16,7 @@ namespace TheVoid
         {
             ConcurrentDictionary<string, string> result = new ConcurrentDictionary<string, string>();
 
-
+            //dirty, clean me up
             foreach( var x in code.Replace("function", "^").Split('^'))
             {
                
@@ -34,9 +34,15 @@ namespace TheVoid
             return result;
 
         }
+        private static bool perfmode = true;
         private static string Beautify(string script)
         {
-            return new JSBeautify(script, new JSBeautifyOptions { preserve_newlines = true }).GetResult();
+            if (!perfmode)
+            {
+                script =  new JSBeautify(script, new JSBeautifyOptions { preserve_newlines = true }).GetResult();
+            }       
+                return script;
+            
         }
 
      //   public string Name;
@@ -45,6 +51,8 @@ namespace TheVoid
             get
             {
                 var fd = new ConcurrentDictionary<string, Delegate>();
+                //settings
+
                 fd.TryAdd("GetMIDIInDevices", new Func<string, string>(str => JsonConvert.SerializeObject(Midi.GetMIDIInDevices())));
                 fd.TryAdd("GetMIDIOutDevices", new Func<string, string>(str => JsonConvert.SerializeObject(Midi.GetMIDIOutDevices())));
                 fd.TryAdd("ResetMidiDevices", new Action<string>(str => Midi.ResetMidiDevices()));
@@ -61,7 +69,7 @@ namespace TheVoid
                 fd.TryAdd("Include", new Action<string>(path => this.Evaluate( new System.Net.WebClient().DownloadString(path))));
                 fd.TryAdd("readcache", new Func<string, string>(path => Beautify(System.IO.File.ReadAllText(@"cache.js"))));
                 fd.TryAdd("savetocache", new Action<string>(str => System.IO.File.WriteAllText(@"cache.js", Beautify(str))));
-                fd.TryAdd("echotest", new Func<string, string>(str => str.ToString()));
+              //  fd.TryAdd("echotest", new Func<string, string>(str => str.ToString()));
                 
                 fd.TryAdd("NoteOutRaw", new Action<string>(i1 => Midi.NoteOut(i1)));
                 fd.TryAdd("CCOutRaw", new Action<string>(i1 => Midi.CCOut(i1)));
@@ -83,8 +91,8 @@ namespace TheVoid
 
 
                 // database
-                fd.TryAdd("dbstore", new Func<string, object, bool >((s1,s2) => Database.Store(s1,s2)));
-                fd.TryAdd("dbrecall", new Func<string, object, object>((s1,s2) => Database.Recall(s1,s2)));
+            //    fd.TryAdd("dbstore", new Func<string, object, bool >((s1,s2) => Database.Store(s1,s2)));
+             //   fd.TryAdd("dbrecall", new Func<string, object, object>((s1,s2) => Database.Recall(s1,s2)));
 
 
                 return fd;

@@ -1,5 +1,5 @@
-﻿using Raven.Client;
-using Raven.Client.Document;
+﻿//using Raven.Client;
+//using Raven.Client.Document;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace TheVoid
 {
    public class Database
     {
-
+        /*
         private static ConcurrentDictionary<String, object> database = new ConcurrentDictionary<string, object>();
 
         public static bool Store(string key, object data)
@@ -84,6 +84,6 @@ namespace TheVoid
             }
         }
 
-
+    */
     }
 }

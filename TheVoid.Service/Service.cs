@@ -7,15 +7,12 @@ using System.Text;
 
 namespace TheVoid.Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
+  
     public class Service : IService
     {
         public List<TheVoid.CI.Page> APCPages()
         {
-           
-
-            return CI.APC.ListPages();
-
+            return TheVoid.CI.APC.ListPages();
         }
    
         public List<string> ListEngines()
@@ -36,19 +33,15 @@ namespace TheVoid.Service
             TheVoid.Combustion.Execute(engine, "enginecreatedon = Date.now();");
         }
 
-        public void CreateArray(string engine,string name,int[] array)
-        {
-       //     string arraystring = TheVoid.Combustion.BuildArray(name,array);
-         //   TheVoid.Combustion.Execute(engine, arraystring);
+       // public void CreateArray(string engine,string name,int[] array)
+       // {
+       ////     string arraystring = TheVoid.Combustion.BuildArray(name,array);
+       //  //   TheVoid.Combustion.Execute(engine, arraystring);
 
-        }
+       // }
         public string[] ListMessages(int lastmessage = 0)
         {
-           
-              
-                    return Utility.Messages.ToArray();
-               
-          
+            return Utility.Messages.ToArray();            
         }
 
  

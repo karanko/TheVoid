@@ -37,7 +37,14 @@ namespace TheVoid.Server
             
             try
             {
-                host = new ServiceHost(typeof(TheVoid.Service.Service), new Uri("http://0.0.0.0:9066/TheVoid"));
+               
+                UriBuilder serverurl = new UriBuilder("http://0.0.0.0:9066/TheVoid");
+                //bool localhost = true; ;
+                //if(localhost)
+                //{
+                //    serverurl.Host = "127.0.0.1";
+                //}
+                host = new ServiceHost(typeof(TheVoid.Service.Service), serverurl.Uri);
                 
                 smb = new ServiceMetadataBehavior();
                 smb.HttpGetEnabled = true; 

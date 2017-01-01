@@ -9,6 +9,6 @@ JavaScript (client-server) MIDI sequencer
 
 ##Why
 
-To begin with I wanted create a client-server environment that was suitable for 'live' coding/jamming so I could make music or experiment faster and be DAW agnoistic. 
-We now have a JavaScript MIDI sequencer outside of the browser.
+To begin with I wanted create a client-server environment that was suitable for 'live' coding/jamming so I could make music or experiment faster and be DAW agnostic. 
+The result is a JavaScript MIDI sequencer outside of the browser.
 

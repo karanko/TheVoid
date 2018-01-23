@@ -19,7 +19,7 @@ namespace TheVoid.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,8 +61,35 @@ namespace TheVoid.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;html&gt;
+        ///   &lt;head&gt;
+        ///      &lt;title&gt;TheVoid&lt;/title&gt;
+        ///      &lt;style&gt;
+        ///         body {
+        ///         background-color: #357;
+        ///         font-family: &quot;Courier New&quot;, Courier, &quot;Lucida Sans Typewriter&quot;, &quot;Lucida Typewriter&quot;, monospace;
+        ///         font-size: 10px;
+        ///         font-style: normal;
+        ///         font-variant: normal;
+        ///         color: #111;
+        ///         }
+        ///         h1 {
+        ///         letter-spacing: -3px;
+        ///         text-align: center;
+        ///         text-transform: lowercase;
+        ///         font-size: 40px;
+        ///         }
+        ///         h1 spa [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string index {
+            get {
+                return ResourceManager.GetString("index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to function dotted_put(str,val) {
-        ///    var oper=str.split(&apos;.&apos;);
+        ///    var oper=str.split(&quot;.&quot;);
         ///    var p=this;
         ///    for (var i=0;i&lt;oper.length-1;i++) {
         ///        var x=oper[i];
@@ -72,7 +99,7 @@ namespace TheVoid.Properties {
         ///    p[oper.pop()]=val;
         ///}
         ///
-        ///function apcnote(pnumber, channel, note) {
+        ///function apcnote_old(pnumber, channel, note) {
         ///
         ///    page = JSON.parse(apcpageraw(pnumber));
         ///    if (!page.Mute) {
@@ -82,9 +109,7 @@ namespace TheVoid.Properties {
         ///    }
         ///}
         ///
-        ///function scale(name, root, note) {
-        ///
-        ///  [rest of string was truncated]&quot;;.
+        ///function apc(pnumber, channel,lengt [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string InternalFunctions {
             get {

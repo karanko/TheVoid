@@ -8,7 +8,11 @@ namespace TheVoid
     public class WebServer
     {
 
+        public static string TheVoidIndexPage()
+        {
 
+            return Properties.Resources.index;
+        }
 
     
         //completly nicked this from https://codehosting.net/blog/BlogEngine/post/Simple-C-Web-Server
@@ -57,10 +61,12 @@ namespace TheVoid
                             var ctx = c as HttpListenerContext;
                             try
                             {
+                                ctx.Response.AddHeader("Access-Control-Allow-Origin", "*");
                                 string rstr = _responderMethod(ctx.Request);
                                 byte[] buf = Encoding.UTF8.GetBytes(rstr);
                                 ctx.Response.ContentLength64 = buf.Length;
                                 ctx.Response.OutputStream.Write(buf, 0, buf.Length);
+                              
                             }
                             catch { } // suppress any exceptions
                             finally

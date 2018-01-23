@@ -5,11 +5,30 @@ using System.ServiceModel;
 using System.ServiceModel.Description;
 using System.Windows.Forms;
 using JSBeautifyLib;
+using System.Collections.Generic;
+using System.IO;
 
 namespace TheVoid.Server
 {
     public partial class VoidWindow : Form
     {
+
+        //public static string[] StaticFiles(string root, string folder)
+        //{
+        //    List<string> result = new List<string>();
+
+        //    string[] files = Directory.GetFiles(folder, "*.*", SearchOption.AllDirectories);
+
+        //    // Display all the files.
+        //    foreach (string file in files)
+        //    {
+        //        UriBuilder u = new UriBuilder(root);
+        //        u.Path = file.Replace(folder, "");
+        //        result.Add(u.Uri.ToString() + "/");
+        //    }
+
+        //    return result.ToArray();
+        //}
 
         public static string SendEvaluatedResponse(HttpListenerRequest request)
         {
@@ -27,7 +46,26 @@ namespace TheVoid.Server
             return "ok=true";
           
         }
-        public static string SendResponse(HttpListenerRequest request)
+        public static string SendStaticResponse(HttpListenerRequest request)
+        {
+            string result = "";
+            try
+            {
+                string file = (@"C:\Repos\TheVoid\TheVoid.Server\static\"+ request.RawUrl.Replace(@"/",@"\"));
+
+                if (file.EndsWith(@"\"))
+                {
+                    file = string.Concat(file.Reverse().Skip(1).Reverse());
+
+                }
+                result = File.ReadAllText(file);
+            }
+            catch (Exception ex) {
+               var x =  ex;
+            }
+            return result;
+        }
+                public static string SendResponse(HttpListenerRequest request)
         {
 
             
@@ -37,11 +75,14 @@ namespace TheVoid.Server
                 string functionlist = Combustion.Evaluate("default", TheVoid.Combustion.Evaluate("default", cmd).Replace(',','+'));
                 return new JSBeautify(functionlist, new JSBeautifyOptions { preserve_newlines = true }).GetResult();
             }
-            else
+            else if (request.RawUrl.Contains("variables"))
             {
                 string thisjson = TheVoid.Combustion.Evaluate("default", "JSON.stringify(this);");
                 return new JSBeautify(thisjson, new JSBeautifyOptions { preserve_newlines = true }).GetResult();
             }
+
+
+            return TheVoid.WebServer.TheVoidIndexPage();
         }
 
         public VoidWindow()
@@ -108,10 +149,12 @@ namespace TheVoid.Server
 
                 host.Open();
 
-                ws = new WebServer(SendResponse, "http://localhost:6789/", "http://localhost:6789/functions/");
-                ws2 = new WebServer(SendEvaluatedResponse, "http://localhost:6790/");
+                ws = new WebServer(SendResponse, "http://+:6789/");
+                ws2 = new WebServer(SendEvaluatedResponse, "http://+:6790/");
+            
                 ws.Run();
                 ws2.Run();
+          
 
 
             }
@@ -158,7 +201,7 @@ namespace TheVoid.Server
         OSC oscserver;
         ServiceHost host; 
         ServiceMetadataBehavior smb;
-        WebServer ws, ws2;
+        WebServer ws, ws2, ws3;
 
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -187,6 +230,7 @@ namespace TheVoid.Server
                     oscserver.Stop();
                     ws.Stop();
                     ws2.Stop();
+                    ws3.Stop();
                     TheVoid.CI.APC.ClearBoard();
                     Environment.Exit(0);
                 }

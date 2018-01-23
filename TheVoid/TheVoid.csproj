@@ -117,6 +117,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\index.html" />
     <Content Include="Resources\InternalFunctions.js" />
     <None Include="Service References\Client.ServiceProxy\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>

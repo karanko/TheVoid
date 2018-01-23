@@ -203,7 +203,7 @@ namespace TheVoid
                 Utility.Print(ex);
                 ClearMidiDevices();
             }
-            return null;
+            return MidiInDevice(i);
         }
         public static MidiOut MidiOutDevice(int i)
         {
@@ -222,7 +222,7 @@ namespace TheVoid
                 Utility.Print(ex);
               //  ClearMidiDevices();
             }
-            return null;
+            return MidiOutDevice(i);
         }
         public static void ResetMidiDevices()
         {

@@ -88,6 +88,7 @@
     <Compile Include="Service\Service.cs" />
     <Compile Include="Sockets.cs" />
     <Compile Include="Utility.cs" />
+    <Compile Include="WebServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

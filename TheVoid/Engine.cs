@@ -185,7 +185,7 @@ namespace TheVoid
             LogExecution(script, user);
             _engine.Execute(Beautify(script));
         }
-        private DateTime _initaldate = new DateTime();
+        //private DateTime _initaldate = new DateTime();
         private Dictionary<string, string> _executiondata = new Dictionary<string, string>();
         public Engine()
         {

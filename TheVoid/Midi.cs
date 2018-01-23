@@ -125,7 +125,7 @@ namespace TheVoid
          {
              get
              {
-                 return Options.Read("tickdivider", 6);
+                return 6;// Options.Read("tickdivider", 6);
              }
              set { Options.Write("tickdivider", value); }
          }

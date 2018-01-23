@@ -1,20 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.ServiceModel;
 using System.ServiceModel.Description;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using JSBeautifyLib;
 
 namespace TheVoid.Server
 {
     public partial class VoidWindow : Form
     {
-  
+
+        public static string SendEvaluatedResponse(HttpListenerRequest request)
+        {
+            if (request.HttpMethod.ToUpper() == "POST")
+            {
+                using (System.IO.Stream body = request.InputStream) // here we have data
+                {
+                    using (System.IO.StreamReader reader = new System.IO.StreamReader(body, request.ContentEncoding))
+                    {
+                        return TheVoid.Combustion.Evaluate("default", reader.ReadToEnd());
+
+                    }
+                }
+            }
+            return "ok=true";
+          
+        }
+        public static string SendResponse(HttpListenerRequest request)
+        {
+
+            
+            if (request.RawUrl.Contains("functions"))
+            {
+                string cmd = @"Object.keys(this).filter(function(x){ if (!(this[x] instanceof Function)) return false; return !/\[native code\]/.test(this[x].toString()) ? true : false;});/*do not log*/";
+                string functionlist = Combustion.Evaluate("default", TheVoid.Combustion.Evaluate("default", cmd).Replace(',','+'));
+                return new JSBeautify(functionlist, new JSBeautifyOptions { preserve_newlines = true }).GetResult();
+            }
+            else
+            {
+                string thisjson = TheVoid.Combustion.Evaluate("default", "JSON.stringify(this);");
+                return new JSBeautify(thisjson, new JSBeautifyOptions { preserve_newlines = true }).GetResult();
+            }
+        }
+
         public VoidWindow()
         {
           //  new FastEval().Show();
@@ -78,6 +107,13 @@ namespace TheVoid.Server
                 TheVoid.Utility.Print("Midi Out Device:" + Midi.GetMIDIOutDevices()[Midi.MidiOutDeviceNumber]);
 
                 host.Open();
+
+                ws = new WebServer(SendResponse, "http://localhost:6789/", "http://localhost:6789/functions/");
+                ws2 = new WebServer(SendEvaluatedResponse, "http://localhost:6790/");
+                ws.Run();
+                ws2.Run();
+
+
             }
             catch(Exception ex)
             {
@@ -122,8 +158,9 @@ namespace TheVoid.Server
         OSC oscserver;
         ServiceHost host; 
         ServiceMetadataBehavior smb;
-              
-            
+        WebServer ws, ws2;
+
+
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             this.Show();
@@ -148,6 +185,8 @@ namespace TheVoid.Server
                 {
                     host.Close();
                     oscserver.Stop();
+                    ws.Stop();
+                    ws2.Stop();
                     TheVoid.CI.APC.ClearBoard();
                     Environment.Exit(0);
                 }
